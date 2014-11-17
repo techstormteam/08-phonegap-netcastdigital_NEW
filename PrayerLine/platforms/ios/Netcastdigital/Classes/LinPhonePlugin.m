@@ -25,6 +25,19 @@
     [self doSip:[NSString stringWithFormat:@"sip:%@@%@", callTo, domain]];
     [[LinphoneManager instance] allowSpeaker];
     [[LinphoneManager instance] speakerEnabled];
+    
+    NSDictionary *jsonObj = [ [NSDictionary alloc]
+                             initWithObjectsAndKeys :
+                             @"true", @"success",
+                             nil
+                             ];
+    
+    CDVPluginResult *pluginResult = [ CDVPluginResult
+                                     resultWithStatus    : CDVCommandStatus_OK
+                                     messageAsDictionary : jsonObj
+                                     ];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void) cancelSip:(CDVInvokedUrlCommand *)command {
@@ -32,13 +45,39 @@
     NSString *domain = GENERIC_DOMAIN;
     [self doHangUp];
     [self doSignOut:sipUsername domain:domain];
+    
+    NSDictionary *jsonObj = [ [NSDictionary alloc]
+                             initWithObjectsAndKeys :
+                             @"true", @"success",
+                             nil
+                             ];
+    
+    CDVPluginResult *pluginResult = [ CDVPluginResult
+                                     resultWithStatus    : CDVCommandStatus_OK
+                                     messageAsDictionary : jsonObj
+                                     ];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void) registerSip:(CDVInvokedUrlCommand *)command {
     NSString *sipUsername = [command.arguments objectAtIndex:0];
     NSString *password = [command.arguments objectAtIndex:1];
     NSString *domain = GENERIC_DOMAIN;
-    [self doRegisterSip:sipUsername password:password domain:domain];
+//    [self doRegisterSip:sipUsername password:password domain:domain];
+    
+    NSDictionary *jsonObj = [ [NSDictionary alloc]
+                             initWithObjectsAndKeys :
+                             @"true", @"success",
+                             nil
+                             ];
+    
+    CDVPluginResult *pluginResult = [ CDVPluginResult
+                                     resultWithStatus    : CDVCommandStatus_OK
+                                     messageAsDictionary : jsonObj
+                                     ];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void) deregisterSip:(CDVInvokedUrlCommand *)command {
@@ -49,24 +88,89 @@
     if ([NOT_IN_CALL isEqualToString:status]) {
         [self doSignOut:sipUsername domain:domain];
     }
+    
+    NSDictionary *jsonObj = [ [NSDictionary alloc]
+                             initWithObjectsAndKeys :
+                             @"true", @"success",
+                             nil
+                             ];
+    
+    CDVPluginResult *pluginResult = [ CDVPluginResult
+                                     resultWithStatus    : CDVCommandStatus_OK
+                                     messageAsDictionary : jsonObj
+                                     ];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void) backWind:(CDVInvokedUrlCommand *)command {
     [self doDialDtmf:'4'];
+    
+    NSDictionary *jsonObj = [ [NSDictionary alloc]
+                             initWithObjectsAndKeys :
+                             @"true", @"success",
+                             nil
+                             ];
+    
+    CDVPluginResult *pluginResult = [ CDVPluginResult
+                                     resultWithStatus    : CDVCommandStatus_OK
+                                     messageAsDictionary : jsonObj
+                                     ];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void) forwardWind:(CDVInvokedUrlCommand *)command {
     [self doDialDtmf:'6'];
+    
+    NSDictionary *jsonObj = [ [NSDictionary alloc]
+                             initWithObjectsAndKeys :
+                             @"true", @"success",
+                             nil
+                             ];
+    
+    CDVPluginResult *pluginResult = [ CDVPluginResult
+                                     resultWithStatus    : CDVCommandStatus_OK
+                                     messageAsDictionary : jsonObj
+                                     ];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void) pauseSip:(CDVInvokedUrlCommand *)command {
     [self doDialDtmf:'#'];
+    
+    NSDictionary *jsonObj = [ [NSDictionary alloc]
+                             initWithObjectsAndKeys :
+                             @"true", @"success",
+                             nil
+                             ];
+    
+    CDVPluginResult *pluginResult = [ CDVPluginResult
+                                     resultWithStatus    : CDVCommandStatus_OK
+                                     messageAsDictionary : jsonObj
+                                     ];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 - (void) signOut:(CDVInvokedUrlCommand *)command {
     NSString *sipUsername = [command.arguments objectAtIndex:0];
     NSString *domain = GENERIC_DOMAIN;
     [self doSignOut:sipUsername domain:domain];
+    
+    NSDictionary *jsonObj = [ [NSDictionary alloc]
+                             initWithObjectsAndKeys :
+                             @"true", @"success",
+                             nil
+                             ];
+    
+    CDVPluginResult *pluginResult = [ CDVPluginResult
+                                     resultWithStatus    : CDVCommandStatus_OK
+                                     messageAsDictionary : jsonObj
+                                     ];
+
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 //------------
