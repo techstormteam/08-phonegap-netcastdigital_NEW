@@ -11,6 +11,8 @@
     <script src="js/jquery-mobile/jquery.mobile.js"></script>
     <script type="text/javascript" src="js/class.user.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/my_linphone.js"></script>
     <link rel="stylesheet" href="js/jquery-mobile-datebox/jqm-datebox.min.css" />
     <link rel="stylesheet" href="css/common.css" />
     <script src="js/jquery-mobile-datebox/jqm-datebox.core.min.js"></script>
@@ -208,7 +210,7 @@
 
             for (var i = 0; i < tickets.length; i++) {
                 var ticket = tickets[i];
-                //swal(ticket['files']);
+                //global.showPopup('', ticket['files'], 'success');
                 var row = '<tr>';
                 row += '<td>' + ticket["id"] + '</td>';
                 row += '<td>' + ticket["title"] + '</td>';
@@ -263,7 +265,7 @@
         }
         function ticket_reopen_response(response) {
             if (response.result === 'success') {
-                swal(response.details);
+                global.showPopup('', response.details, 'success');
                 $('#message').html('<span style="color:green;">You successfuly reopen the ticket.</span>').show();
             } else {
                 $('#message').html('<span style="color:red;">' + response.details + '</span>').show();

@@ -13,6 +13,8 @@
         <script src="js/jquery-mobile/jquery.mobile.js"></script>
         <script type="text/javascript" src="js/class.user.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/my_linphone.js"></script>
         <link rel="stylesheet" href="js/jquery-mobile-datebox/jqm-datebox.min.css" />
         <link rel="stylesheet" href="css/common.css" />
         <script src="js/jquery-mobile-datebox/jqm-datebox.core.min.js"></script>
@@ -206,10 +208,10 @@
             });
         </script>
         <script>
-            if (window.location.href.indexOf('/prayerline/') !== -1) {
+            //if (window.location.href.indexOf('/prayerline/') !== -1) {
                 $('#creditTransferPayment').hide();
                 global.api('religious_entity_charge', {user_id: global.getUser().getId()}, religious_entity_charge_response);
-            }
+            //}
             function religious_entity_charge_response(response) {
                 if (response.result === 'success') {
                     var gbp_charge = response.details['gbp_charge'];
@@ -274,7 +276,7 @@
             }
             function payment_by_user_id_response(response) {
                 if (response.result === 'success') {
-                    swal(response.details);
+                    global.showPopup('', response.details, 'success');
                     window.location.href = 'index.html';
                 } else {
                     $('#message').html('<span style="color:red;">' + response.details + '</span>').show();

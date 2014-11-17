@@ -201,8 +201,6 @@
     linphone_core_add_auth_info([LinphoneManager getLc], auth_info);
     linphone_core_add_proxy_config([LinphoneManager getLc], proxyCfg);
     linphone_core_set_default_proxy([LinphoneManager getLc], proxyCfg);
-    LinphoneProxyConfig *config = linphone_core_get_default_proxy_config([LinphoneManager getLc]);
-    int a = 3;
 }
 
 - (NSMutableArray*) findAuthIndexOf:(NSString*)sipAddress {

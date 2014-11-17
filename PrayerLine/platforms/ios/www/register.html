@@ -4,15 +4,19 @@
         <meta name="format-detection" content="telephone=no" />
         <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />-->
         <meta name="viewport" content="width=320, initial-scale=1" />
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
         <link rel="stylesheet" href="js/jquery-mobile/jquery.mobile.css" />
+        <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+        <script type="text/javascript" src="js/sweet-alert.js"></script>
         <script src="js/jquery/jquery.js"></script>
-        <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <script src="js/jquery-ui.js"></script>
         
         <script src="js/jquery-mobile/jquery.mobile.js"></script>
         <script src="js/class.logbucket.js"></script>
         <script src="js/class.user.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <!--<script type="text/javascript" src="cordova.js"></script>-->
+        <script type="text/javascript" src="js/my_linphone.js"></script>
         
         <title>Sign Up</title>
         <style>
@@ -111,15 +115,18 @@
 
             function register(response) {
                 if (response.result === 'success') {
-                    $('#message').html("<span style='color:green;'>" + response.details + "</span>").show();
-                    setTimeout(function () {
-                        window.location.href = 'login.html';
-                    }, 15000);
+                	global.showPopup('', response.details,'success', onSuccessRegister);
+                    //$('#message').html("<span style='color:green;'>" + response.details + "</span>").show();
 
                 } else {
-                    $('#message').html("<span style='color:red;'>" + response.details + "</span>").show();
+                    //$('#message').html("<span style='color:red;'>" + response.details + "</span>").show();
+                    global.showPopup('', response.details,'error');
                 }
             }
+
+			function onSuccessRegister() {
+				window.location.href = 'login.html';
+			}
 
             function check_form() {
                 var firstName = $('#firstName').val();
@@ -133,29 +140,37 @@
                 $('#message').hide();
 
                 if (firstName === '') {
-                    var msg = "<span style='color:red;'>Please enter first name...</span>";
-                    $('#message').html(msg).show();
+                    //var msg = "<span style='color:red;'>Please enter first name...</span>";
+                    //$('#message').html(msg).show();
+                    global.showPopup('', 'Please enter first name...','error');
                 } else if (lastName === '') {
-                    var msg = "<span style='color:red;'>Please enter last name...</span>";
-                    $('#message').html(msg).show();
+                    //var msg = "<span style='color:red;'>Please enter last name...</span>";
+                    //$('#message').html(msg).show();
+                    global.showPopup('', 'Please enter last name...','error');
                 } else if (phone === '') {
-                    var msg = "<span style='color:red;'>Please enter phone...</span>";
-                    $('#message').html(msg).show();
+                    //var msg = "<span style='color:red;'>Please enter phone...</span>";
+                    //$('#message').html(msg).show();
+                    global.showPopup('', 'Please enter phone...','error');
                 } else if (email === '') {
-                    var msg = "<span style='color:red;'>Please enter email...</span>";
-                    $('#message').html(msg).show();
+                    //var msg = "<span style='color:red;'>Please enter email...</span>";
+                    //$('#message').html(msg).show();
+                    global.showPopup('', 'Please enter email...','error');
                 } else if (password === '') {
-                    var msg = "<span style='color:red;'>Please enter password...</span>";
-                    $('#message').html(msg).show();
+                    //var msg = "<span style='color:red;'>Please enter password...</span>";
+                    //$('#message').html(msg).show();
+                    global.showPopup('', 'Please enter password...','error');
                 } else if (password_re === '') {
-                    var msg = "<span style='color:red;'>Please re-enter password...</span>";
-                    $('#message').html(msg).show();
+                    //var msg = "<span style='color:red;'>Please re-enter password...</span>";
+                    //$('#message').html(msg).show();
+                    global.showPopup('', 'Please re-enter password...','error');
                 } else if (password_re !== password) {
-                    var msg = "<span style='color:red;'>Password and Re-enter Password must be the same...</span>";
-                    $('#message').html(msg).show();
+                    //var msg = "<span style='color:red;'>Password and Re-enter Password must be the same...</span>";
+                    //$('#message').html(msg).show();
+                    global.showPopup('', 'Password and Re-enter Password must be the same...','error');
                 } else if (prayerline === '') {
-                    var msg = "<span style='color:red;'>Please enter prayerline...</span>";
-                    $('#message').html(msg).show();
+                    //var msg = "<span style='color:red;'>Please enter prayerline...</span>";
+                    //$('#message').html(msg).show();
+                    global.showPopup('', 'Please enter prayerline...','error');
                 } else {
                     global.set('auto_login', false);
                     global.api('register_user', {fname: firstName, lname: lastName, email: email, telno: phone, password: password, prayerline: prayerline}, register);
