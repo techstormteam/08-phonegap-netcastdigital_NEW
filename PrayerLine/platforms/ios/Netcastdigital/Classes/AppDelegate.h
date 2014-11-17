@@ -27,9 +27,14 @@
 
 #import <UIKit/UIKit.h>
 
+
 #import <Cordova/CDVViewController.h>
 
-@interface AppDelegate : NSObject <UIApplicationDelegate>{}
+@interface AppDelegate : NSObject <UIApplicationDelegate>{
+    @private
+    UIBackgroundTaskIdentifier bgStartId;
+    BOOL startedInBackground;
+}
 
 // invoke string is passed to your app on launch, this is only valid if you
 // edit Netcastdigital-Info.plist to add a protocol
@@ -38,5 +43,7 @@
 
 @property (nonatomic, strong) IBOutlet UIWindow* window;
 @property (nonatomic, strong) IBOutlet CDVViewController* viewController;
+@property (nonatomic, retain) NSString *configURL;
+@property (nonatomic, retain) UIAlertView *waitingIndicator;
 
 @end
