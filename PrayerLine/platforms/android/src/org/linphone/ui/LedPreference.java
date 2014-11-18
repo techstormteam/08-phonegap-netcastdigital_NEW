@@ -24,7 +24,7 @@ import android.preference.Preference;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.R;
 
 /**
  * @author Sylvain Berfini

@@ -29,10 +29,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.techstorm.netcastdigital.LinphoneManager;
-import com.techstorm.netcastdigital.LinphonePreferences;
-import com.techstorm.netcastdigital.LinphoneService;
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.LinphoneManager;
+import com.iderainc.prayerline.LinphonePreferences;
+import com.iderainc.prayerline.LinphoneService;
+import com.iderainc.prayerline.R;
 
 public class Digit extends Button implements AddressAware {
 

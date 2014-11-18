@@ -28,8 +28,8 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.techstorm.netcastdigital.LinphoneService;
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.LinphoneService;
+import com.iderainc.prayerline.R;
 
 /**
  * 

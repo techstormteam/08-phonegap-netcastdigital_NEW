@@ -11,6 +11,6 @@
     <content src="index.html" />
     <access origin="*" />
     <feature name="LinPhonePlugin">
-       <param name="android-package" value="com.techstorm.netcastdigital.LinPhonePlugin" />
+       <param name="android-package" value="com.iderainc.prayerline.LinPhonePlugin" />
 	</feature>
 </widget>

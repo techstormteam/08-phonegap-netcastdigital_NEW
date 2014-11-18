@@ -30,8 +30,8 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.techstorm.netcastdigital.LinphoneManager;
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.LinphoneManager;
+import com.iderainc.prayerline.R;
 
 /**
  * @author Guillaume Beraudo

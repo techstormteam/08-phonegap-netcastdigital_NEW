@@ -26,7 +26,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.R;
 
 /**
  * @author Sylvain Berfini

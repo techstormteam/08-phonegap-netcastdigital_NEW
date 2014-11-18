@@ -27,8 +27,8 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.EditText;
 
-import com.techstorm.netcastdigital.LinphoneManager.AddressType;
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.R;
+import com.iderainc.prayerline.LinphoneManager.AddressType;
 
 /**
  * @author Guillaume Beraudo

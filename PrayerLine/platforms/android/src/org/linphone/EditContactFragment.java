@@ -28,10 +28,10 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-import com.techstorm.netcastdigital.Contact;
-import com.techstorm.netcastdigital.LinphoneUtils;
-import com.techstorm.netcastdigital.R;
-import com.techstorm.netcastdigital.compatibility.Compatibility;
+import com.iderainc.prayerline.Contact;
+import com.iderainc.prayerline.LinphoneUtils;
+import com.iderainc.prayerline.R;
+import com.iderainc.prayerline.compatibility.Compatibility;
 
 public class EditContactFragment extends Fragment {
 	private View view;

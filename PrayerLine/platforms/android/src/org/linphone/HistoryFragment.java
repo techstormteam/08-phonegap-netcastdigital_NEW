@@ -49,10 +49,10 @@ import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.techstorm.netcastdigital.FragmentsAvailable;
-import com.techstorm.netcastdigital.LinphoneManager;
-import com.techstorm.netcastdigital.LinphoneUtils;
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.FragmentsAvailable;
+import com.iderainc.prayerline.LinphoneManager;
+import com.iderainc.prayerline.LinphoneUtils;
+import com.iderainc.prayerline.R;
 
 /**
  * @author Sylvain Berfini

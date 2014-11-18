@@ -68,13 +68,13 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.techstorm.netcastdigital.BluetoothManager;
-import com.techstorm.netcastdigital.LinphoneManager;
-import com.techstorm.netcastdigital.LinphonePreferences;
-import com.techstorm.netcastdigital.LinphoneSimpleListener.LinphoneOnCallEncryptionChangedListener;
-import com.techstorm.netcastdigital.LinphoneSimpleListener.LinphoneOnCallStateChangedListener;
-import com.techstorm.netcastdigital.LinphoneUtils;
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.BluetoothManager;
+import com.iderainc.prayerline.LinphoneManager;
+import com.iderainc.prayerline.LinphonePreferences;
+import com.iderainc.prayerline.LinphoneUtils;
+import com.iderainc.prayerline.R;
+import com.iderainc.prayerline.LinphoneSimpleListener.LinphoneOnCallEncryptionChangedListener;
+import com.iderainc.prayerline.LinphoneSimpleListener.LinphoneOnCallStateChangedListener;
 
 /**
  * @author Sylvain Berfini

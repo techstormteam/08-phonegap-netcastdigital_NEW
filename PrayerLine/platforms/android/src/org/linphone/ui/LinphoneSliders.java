@@ -9,7 +9,7 @@ import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.R;
 
 /*
 LinphoneSliders.java

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<manifest android:hardwareAccelerated="true" android:versionCode="1" android:versionName="1.0.44" package="com.techstorm.netcastdigital" xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest android:hardwareAccelerated="true" android:versionCode="1" android:versionName="1.0.44" package="com.iderainc.prayerline" xmlns:android="http://schemas.android.com/apk/res/android">
     
     <!-- Permissions for Push Notification -->
     <permission android:name="org.linphone.permission.C2D_MESSAGE" android:protectionLevel="signature" /> <!-- Change package ! -->
@@ -42,7 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="com.techstorm.netcastdigital.LinphoneService"
+        <service android:name="com.iderainc.prayerline.LinphoneService"
 	        android:label="@string/service_name"
 	        android:stopWithTask="false"/>
         
@@ -56,18 +56,18 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <receiver android:name="com.techstorm.netcastdigital.NetworkManager">
+        <receiver android:name="com.iderainc.prayerline.NetworkManager">
 			<intent-filter><action android:name="android.net.conn.CONNECTIVITY_CHANGE"></action></intent-filter>
 		</receiver>
 	
-	    <receiver android:name="com.techstorm.netcastdigital.BluetoothManager">
+	    <receiver android:name="com.iderainc.prayerline.BluetoothManager">
 		</receiver>
 	
-		<receiver android:name="com.techstorm.netcastdigital.BootReceiver">
+		<receiver android:name="com.iderainc.prayerline.BootReceiver">
 			<intent-filter><action android:name="android.intent.action.BOOT_COMPLETED"></action></intent-filter>
 		</receiver>
 	
-		<receiver android:name="com.techstorm.netcastdigital.PhoneStateChangedReceiver">
+		<receiver android:name="com.iderainc.prayerline.PhoneStateChangedReceiver">
 			<intent-filter><action android:name="android.intent.action.PHONE_STATE" /></intent-filter>
 		</receiver>
 		
@@ -78,7 +78,7 @@
 		  <intent-filter>
 		    <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 		    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-		    <category android:name="com.techstorm.netcastdigital" /> 
+		    <category android:name="com.iderainc.prayerline" /> 
 		  </intent-filter>
 		</receiver>
 		

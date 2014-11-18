@@ -26,7 +26,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.R;
 
 /**
  * @author Sylvain Berfini

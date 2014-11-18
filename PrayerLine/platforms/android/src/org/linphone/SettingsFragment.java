@@ -38,7 +38,6 @@ import org.linphone.mediastream.video.capture.hwconf.AndroidCameraConfiguration;
 import org.linphone.ui.LedPreference;
 import org.linphone.ui.PreferencesListFragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.CheckBoxPreference;
@@ -50,12 +49,12 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 
-import com.techstorm.netcastdigital.FragmentsAvailable;
-import com.techstorm.netcastdigital.LinphoneManager;
-import com.techstorm.netcastdigital.LinphoneManager.EcCalibrationListener;
-import com.techstorm.netcastdigital.LinphonePreferences;
-import com.techstorm.netcastdigital.LinphoneService;
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.FragmentsAvailable;
+import com.iderainc.prayerline.LinphoneManager;
+import com.iderainc.prayerline.LinphonePreferences;
+import com.iderainc.prayerline.LinphoneService;
+import com.iderainc.prayerline.R;
+import com.iderainc.prayerline.LinphoneManager.EcCalibrationListener;
 
 /**
  * @author Sylvain Berfini

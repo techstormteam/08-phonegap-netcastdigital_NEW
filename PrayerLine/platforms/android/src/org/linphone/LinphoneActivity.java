@@ -78,21 +78,21 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.techstorm.netcastdigital.ChatMessage;
-import com.techstorm.netcastdigital.ChatStorage;
-import com.techstorm.netcastdigital.Contact;
-import com.techstorm.netcastdigital.FragmentsAvailable;
-import com.techstorm.netcastdigital.LinphoneManager;
-import com.techstorm.netcastdigital.LinphoneManager.AddressType;
-import com.techstorm.netcastdigital.LinphonePreferences;
-import com.techstorm.netcastdigital.LinphoneService;
-import com.techstorm.netcastdigital.LinphoneSimpleListener.LinphoneOnCallStateChangedListener;
-import com.techstorm.netcastdigital.LinphoneSimpleListener.LinphoneOnMessageReceivedListener;
-import com.techstorm.netcastdigital.LinphoneSimpleListener.LinphoneOnRegistrationStateChangedListener;
-import com.techstorm.netcastdigital.LinphoneUtils;
-import com.techstorm.netcastdigital.Netcastdigital;
-import com.techstorm.netcastdigital.R;
-import com.techstorm.netcastdigital.compatibility.Compatibility;
+import com.iderainc.prayerline.ChatMessage;
+import com.iderainc.prayerline.ChatStorage;
+import com.iderainc.prayerline.Contact;
+import com.iderainc.prayerline.FragmentsAvailable;
+import com.iderainc.prayerline.LinphoneManager;
+import com.iderainc.prayerline.LinphonePreferences;
+import com.iderainc.prayerline.LinphoneService;
+import com.iderainc.prayerline.LinphoneUtils;
+import com.iderainc.prayerline.Netcastdigital;
+import com.iderainc.prayerline.R;
+import com.iderainc.prayerline.LinphoneManager.AddressType;
+import com.iderainc.prayerline.LinphoneSimpleListener.LinphoneOnCallStateChangedListener;
+import com.iderainc.prayerline.LinphoneSimpleListener.LinphoneOnMessageReceivedListener;
+import com.iderainc.prayerline.LinphoneSimpleListener.LinphoneOnRegistrationStateChangedListener;
+import com.iderainc.prayerline.compatibility.Compatibility;
 
 /**
  * @author Sylvain Berfini

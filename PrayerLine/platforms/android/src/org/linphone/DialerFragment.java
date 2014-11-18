@@ -34,9 +34,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.techstorm.netcastdigital.FragmentsAvailable;
-import com.techstorm.netcastdigital.LinphoneManager;
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.FragmentsAvailable;
+import com.iderainc.prayerline.LinphoneManager;
+import com.iderainc.prayerline.R;
 
 /**
  * @author Sylvain Berfini

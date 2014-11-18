@@ -29,7 +29,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.R;
 
 /**
  * @author Guillaume Beraudo

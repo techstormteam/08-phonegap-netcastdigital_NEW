@@ -38,13 +38,13 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 
-import com.techstorm.netcastdigital.CallManager;
-import com.techstorm.netcastdigital.LinphoneManager;
-import com.techstorm.netcastdigital.LinphoneUtils;
-import com.techstorm.netcastdigital.R;
-import com.techstorm.netcastdigital.compatibility.Compatibility;
-import com.techstorm.netcastdigital.compatibility.CompatibilityScaleGestureDetector;
-import com.techstorm.netcastdigital.compatibility.CompatibilityScaleGestureListener;
+import com.iderainc.prayerline.CallManager;
+import com.iderainc.prayerline.LinphoneManager;
+import com.iderainc.prayerline.LinphoneUtils;
+import com.iderainc.prayerline.R;
+import com.iderainc.prayerline.compatibility.Compatibility;
+import com.iderainc.prayerline.compatibility.CompatibilityScaleGestureDetector;
+import com.iderainc.prayerline.compatibility.CompatibilityScaleGestureListener;
 
 /**
  * @author Sylvain Berfini

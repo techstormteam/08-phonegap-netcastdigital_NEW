@@ -39,7 +39,7 @@ import android.view.ViewParent;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.R;
 
 @SuppressLint("ValidFragment")
 public class PreferencesListFragment extends ListFragment {

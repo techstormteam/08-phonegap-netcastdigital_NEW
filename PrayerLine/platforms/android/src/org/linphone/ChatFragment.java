@@ -82,15 +82,15 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.techstorm.netcastdigital.ChatStorage;
-import com.techstorm.netcastdigital.FragmentsAvailable;
-import com.techstorm.netcastdigital.LinphoneManager;
-import com.techstorm.netcastdigital.LinphonePreferences;
-import com.techstorm.netcastdigital.LinphoneService;
-import com.techstorm.netcastdigital.LinphoneSimpleListener.LinphoneOnComposingReceivedListener;
-import com.techstorm.netcastdigital.LinphoneUtils;
-import com.techstorm.netcastdigital.R;
-import com.techstorm.netcastdigital.compatibility.Compatibility;
+import com.iderainc.prayerline.ChatStorage;
+import com.iderainc.prayerline.FragmentsAvailable;
+import com.iderainc.prayerline.LinphoneManager;
+import com.iderainc.prayerline.LinphonePreferences;
+import com.iderainc.prayerline.LinphoneService;
+import com.iderainc.prayerline.LinphoneUtils;
+import com.iderainc.prayerline.R;
+import com.iderainc.prayerline.LinphoneSimpleListener.LinphoneOnComposingReceivedListener;
+import com.iderainc.prayerline.compatibility.Compatibility;
 
 /**
  * @author Sylvain Berfini

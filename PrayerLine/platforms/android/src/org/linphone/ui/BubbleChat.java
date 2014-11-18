@@ -47,7 +47,7 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.R;
 
 /**
  * @author Sylvain Berfini

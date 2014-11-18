@@ -38,11 +38,11 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.techstorm.netcastdigital.LinphoneManager;
-import com.techstorm.netcastdigital.LinphoneSimpleListener.LinphoneOnCallStateChangedListener;
-import com.techstorm.netcastdigital.LinphoneUtils;
-import com.techstorm.netcastdigital.NetworkManager;
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.LinphoneManager;
+import com.iderainc.prayerline.LinphoneUtils;
+import com.iderainc.prayerline.NetworkManager;
+import com.iderainc.prayerline.R;
+import com.iderainc.prayerline.LinphoneSimpleListener.LinphoneOnCallStateChangedListener;
 
 /**
  * Activity displayed when a call comes in.

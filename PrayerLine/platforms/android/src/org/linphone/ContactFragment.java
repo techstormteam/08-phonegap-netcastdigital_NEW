@@ -33,11 +33,11 @@ import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-import com.techstorm.netcastdigital.Contact;
-import com.techstorm.netcastdigital.FragmentsAvailable;
-import com.techstorm.netcastdigital.LinphoneManager;
-import com.techstorm.netcastdigital.R;
-import com.techstorm.netcastdigital.compatibility.Compatibility;
+import com.iderainc.prayerline.Contact;
+import com.iderainc.prayerline.FragmentsAvailable;
+import com.iderainc.prayerline.LinphoneManager;
+import com.iderainc.prayerline.R;
+import com.iderainc.prayerline.compatibility.Compatibility;
 
 /**
  * @author Sylvain Berfini

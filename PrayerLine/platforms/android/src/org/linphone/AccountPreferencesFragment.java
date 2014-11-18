@@ -37,10 +37,10 @@ import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 
-import com.techstorm.netcastdigital.LinphoneManager;
-import com.techstorm.netcastdigital.LinphonePreferences;
-import com.techstorm.netcastdigital.LinphonePreferences.AccountBuilder;
-import com.techstorm.netcastdigital.R;
+import com.iderainc.prayerline.LinphoneManager;
+import com.iderainc.prayerline.LinphonePreferences;
+import com.iderainc.prayerline.R;
+import com.iderainc.prayerline.LinphonePreferences.AccountBuilder;
 
 /**
  * @author Sylvain Berfini
