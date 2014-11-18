@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F0BB8BD41936208100974404"
-               BuildableName = "LinphoneTester.app"
-               BlueprintName = "LinphoneTester"
-               ReferencedContainer = "container:linphone.xcodeproj">
+               BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+               BuildableName = "PrayerLine.app"
+               BlueprintName = "PrayerLine"
+               ReferencedContainer = "container:PrayerLine.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,24 +28,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F08F118319C09C6A007D70C2"
-               BuildableName = "LinphoneTester Tests.xctest"
-               BlueprintName = "LinphoneTester Tests"
-               ReferencedContainer = "container:linphone.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F0BB8BD41936208100974404"
-            BuildableName = "LinphoneTester.app"
-            BlueprintName = "LinphoneTester"
-            ReferencedContainer = "container:linphone.xcodeproj">
+            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+            BuildableName = "PrayerLine.app"
+            BlueprintName = "PrayerLine"
+            ReferencedContainer = "container:PrayerLine.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -61,13 +51,18 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F0BB8BD41936208100974404"
-            BuildableName = "LinphoneTester.app"
-            BlueprintName = "LinphoneTester"
-            ReferencedContainer = "container:linphone.xcodeproj">
+            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+            BuildableName = "PrayerLine.app"
+            BlueprintName = "PrayerLine"
+            ReferencedContainer = "container:PrayerLine.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
+         <AdditionalOption
+            key = "NSZombieEnabled"
+            value = "YES"
+            isEnabled = "YES">
+         </AdditionalOption>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
@@ -79,10 +74,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F0BB8BD41936208100974404"
-            BuildableName = "LinphoneTester.app"
-            BlueprintName = "LinphoneTester"
-            ReferencedContainer = "container:linphone.xcodeproj">
+            BlueprintIdentifier = "1D6058900D05DD3D006BFB54"
+            BuildableName = "PrayerLine.app"
+            BlueprintName = "PrayerLine"
+            ReferencedContainer = "container:PrayerLine.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
