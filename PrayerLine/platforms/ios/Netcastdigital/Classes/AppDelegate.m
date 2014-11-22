@@ -162,9 +162,25 @@
     if (bgStartId!=UIBackgroundTaskInvalid) [[UIApplication sharedApplication] endBackgroundTask:bgStartId];
     
     
-    
+    [self enableCodecs:linphone_core_get_audio_codecs([LinphoneManager getLc])];
+    [self enableCodecs:linphone_core_get_video_codecs([LinphoneManager getLc])];
     
     return YES;
+}
+
+- (void)enableCodecs: (const MSList *)codecs {
+    LinphoneCore *lc=[LinphoneManager getLc];
+    const MSList *elem=codecs;
+    for(;elem!=NULL;elem=elem->next){
+        PayloadType *pt=(PayloadType*)elem->data;
+        NSString *pref=[LinphoneManager getPreferenceForCodec:pt->mime_type withRate:pt->clock_rate];
+        if (pref){
+            linphone_core_enable_payload_type(lc,pt,YES);
+        }else{
+            [LinphoneLogger logc:LinphoneLoggerWarning format:"Codec %s/%i supported by core is not shown in iOS app config view.",
+             pt->mime_type,pt->clock_rate];
+        }
+    }
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
