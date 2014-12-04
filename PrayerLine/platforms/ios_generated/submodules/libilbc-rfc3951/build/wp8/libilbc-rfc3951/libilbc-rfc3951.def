@@ -1,7 +1,0 @@
-LIBRARY libilbc-rfc3951
-EXPORTS
-
-iLBC_decode
-iLBC_encode
-initDecode
-initEncode
