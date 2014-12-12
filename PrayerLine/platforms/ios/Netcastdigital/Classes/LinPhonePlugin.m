@@ -44,7 +44,7 @@
     NSString *sipUsername = [command.arguments objectAtIndex:0];
     NSString *domain = GENERIC_DOMAIN;
     [self doHangUp];
-    [self doSignOut:sipUsername domain:domain];
+    [LinPhonePlugin doSignOut:sipUsername domain:domain];
     
     NSDictionary *jsonObj = [ [NSDictionary alloc]
                              initWithObjectsAndKeys :
@@ -64,7 +64,7 @@
     NSString *sipUsername = [command.arguments objectAtIndex:0];
     NSString *password = [command.arguments objectAtIndex:1];
     NSString *domain = GENERIC_DOMAIN;
-//    [self doRegisterSip:sipUsername password:password domain:domain];
+    [self doRegisterSip:sipUsername password:password domain:domain];
     
     NSDictionary *jsonObj = [ [NSDictionary alloc]
                              initWithObjectsAndKeys :
@@ -84,9 +84,9 @@
     NSString *sipUsername = [command.arguments objectAtIndex:0];
     NSString *status = [command.arguments objectAtIndex:1];
     NSString *domain = GENERIC_DOMAIN;
-    [self doSignOut:sipUsername domain:domain];
+    [LinPhonePlugin doSignOut:sipUsername domain:domain];
     if ([NOT_IN_CALL isEqualToString:status]) {
-        [self doSignOut:sipUsername domain:domain];
+        [LinPhonePlugin doSignOut:sipUsername domain:domain];
     }
     
     NSDictionary *jsonObj = [ [NSDictionary alloc]
@@ -157,7 +157,7 @@
 - (void) signOut:(CDVInvokedUrlCommand *)command {
     NSString *sipUsername = [command.arguments objectAtIndex:0];
     NSString *domain = GENERIC_DOMAIN;
-    [self doSignOut:sipUsername domain:domain];
+    [LinPhonePlugin doSignOut:sipUsername domain:domain];
     
     NSDictionary *jsonObj = [ [NSDictionary alloc]
                              initWithObjectsAndKeys :
@@ -181,43 +181,25 @@
     LinphoneCore *lc = [LinphoneManager getLc];
     
     if (linphone_core_is_network_reachable(lc)) {
-        [self doSignOut:sipUsername domain:domain];
         
         // Get account index.
         const MSList *authInfoList = linphone_core_get_auth_info_list(lc);
         int nbAccounts = ms_list_size(authInfoList);
-        NSMutableArray *accountIndexes = [self findAuthIndexOf:sipAddress];
         
+//        if (nbAccounts > 0
+//            && [NOT_REGISTERED isEqualToString:registerStatus]) {
+            [LinPhonePlugin doSignOut:sipUsername domain:domain];
+//        }
         
-        if (accountIndexes == nil || [accountIndexes count] == 0) { // User haven't registered in linphone
+        if (nbAccounts == 0) { // User haven't registered in linphone
             [self doLogIn:sipUsername password:password domain:domain];
             [[LinphoneManager instance] refreshRegisters];
-            [accountIndexes addObject:[NSNumber numberWithInteger:nbAccounts]];
+        } else {
+            LinphoneCoreSettingsStore *settingsStore = [[LinphoneCoreSettingsStore alloc] init];
+            [settingsStore switchAccount:sipUsername];
         }
         
         
-        for (NSInteger index = 0; index < [accountIndexes count]; index++) {
-            NSNumber *accountIndex = [accountIndexes objectAtIndex:index];
-            LinphoneProxyConfig *tempProxyConfig = linphone_core_get_default_proxy_config(lc);
-            if ([self getProxyConfigIndex:tempProxyConfig] != [accountIndex intValue]) {
-                linphone_core_set_default_proxy_index(lc, [accountIndex intValue]);
-                LinphoneProxyConfig *proxyConfig = linphone_core_get_default_proxy_config(lc);
-                if (proxyConfig != nil) {
-                    linphone_proxy_config_enable_register(proxyConfig, true);
-                    [[LinphoneManager instance] refreshRegisters];
-                }
-            } else {
-                if (lc != nil && linphone_core_get_default_proxy_config(lc) != nil) {
-                    if (LinphoneRegistrationOk == linphone_proxy_config_get_state(linphone_core_get_default_proxy_config(lc))) {
-                        //empty
-                    } else if (LinphoneRegistrationFailed == linphone_proxy_config_get_state(linphone_core_get_default_proxy_config(lc))
-                               || LinphoneRegistrationNone == linphone_proxy_config_get_state(linphone_core_get_default_proxy_config(lc))) {
-                        linphone_proxy_config_register_enabled(linphone_core_get_default_proxy_config(lc));
-                        [[LinphoneManager instance] refreshRegisters];
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -264,28 +246,21 @@
     }
 }
 
-- (void) doSignOut:(NSString*)sipUsername domain:(NSString*)domain {
++ (void) doSignOut:(NSString*)sipUsername domain:(NSString*)domain {
     if ([LinphoneManager isLcReady]) {
         LinphoneCore *lc = [LinphoneManager getLc];
-        
-        NSString *sipAddress = [NSString stringWithFormat:@"%@@%@", sipUsername, domain];
-        NSMutableArray *accountIndexes = [self findAuthIndexOf:sipAddress];
-        for (NSInteger index = 0; index < [accountIndexes count]; index++) {
-            NSNumber *accountIndex = [accountIndexes objectAtIndex:index];
-            const MSList *proxyConfigList = linphone_core_get_proxy_config_list(lc);
-            if (proxyConfigList != nil) {
-                LinphoneProxyConfig *proxyConfig = ms_list_nth_data(proxyConfigList, [accountIndex intValue]);
-                linphone_proxy_config_enable_register(proxyConfig, false);
-                linphone_proxy_config_destroy(proxyConfig);
-            }
+        LinphoneProxyConfig* proxyCfg = NULL;
+        linphone_core_get_default_proxy(lc, &proxyCfg);
+        if (proxyCfg != NULL) {
+            
+            linphone_proxy_config_edit(proxyCfg);
+            linphone_proxy_config_enable_register(proxyCfg, false);
+            linphone_proxy_config_done(proxyCfg);
+            
+            linphone_core_get_default_proxy([LinphoneManager getLc], &proxyCfg);
+            [LinPhonePlugin doProxyConfigUpdate:proxyCfg];
+            
         }
-        
-        const LinphoneAuthInfo* authInfo = linphone_core_find_auth_info(lc, NULL, [sipUsername UTF8String], [domain UTF8String]);
-        if (authInfo != nil) {
-            linphone_core_remove_auth_info(lc, authInfo);
-        }
-        [[LinphoneManager instance] refreshRegisters];
-        
     }
 }
 
@@ -324,6 +299,62 @@
         }
     }
     return indexes;
+}
+
++ (void)doProxyConfigUpdate: (LinphoneProxyConfig*) config {
+    LinphoneRegistrationState state = LinphoneRegistrationNone;
+    NSString* message = nil;
+    //    UIImage* image = nil;
+    LinphoneCore* lc = [LinphoneManager getLc];
+    LinphoneGlobalState gstate = linphone_core_get_global_state(lc);
+    
+    if( gstate == LinphoneGlobalConfiguring ){
+        message = NSLocalizedString(@"Fetching remote configuration", nil);
+    } else if (config == NULL) {
+        state = LinphoneRegistrationNone;
+        if(linphone_core_is_network_reachable([LinphoneManager getLc]))
+            message = NSLocalizedString(@"No SIP account configured", nil);
+        else
+            message = NSLocalizedString(@"Network down", nil);
+    } else {
+        state = linphone_proxy_config_get_state(config);
+        
+        switch (state) {
+            case LinphoneRegistrationOk:
+                message = NSLocalizedString(@"Registered", nil); break;
+            case LinphoneRegistrationNone:
+            case LinphoneRegistrationCleared:
+                message =  NSLocalizedString(@"Not registered", nil); break;
+            case LinphoneRegistrationFailed:
+                message =  NSLocalizedString(@"Registration failed", nil); break;
+            case LinphoneRegistrationProgress:
+                message =  NSLocalizedString(@"Registration in progress", nil); break;
+            default: break;
+        }
+    }
+    
+    //    registrationStateLabel.hidden = NO;
+    switch(state) {
+        case LinphoneRegistrationFailed:
+            //            registrationStateImage.hidden = NO;
+            //            image = [UIImage imageNamed:@"led_error.png"];
+            break;
+        case LinphoneRegistrationCleared:
+        case LinphoneRegistrationNone:
+            //            registrationStateImage.hidden = NO;
+            //            image = [UIImage imageNamed:@"led_disconnected.png"];
+            break;
+        case LinphoneRegistrationProgress:
+            //            registrationStateImage.hidden = NO;
+            //            image = [UIImage imageNamed:@"led_inprogress.png"];
+            break;
+        case LinphoneRegistrationOk:
+            //            registrationStateImage.hidden = NO;
+            //            image = [UIImage imageNamed:@"led_connected.png"];
+            break;
+    }
+    //    [registrationStateLabel setText:message];
+    //    [registrationStateImage setImage:image];
 }
 
 @end

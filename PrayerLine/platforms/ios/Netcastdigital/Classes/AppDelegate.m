@@ -162,8 +162,8 @@
     if (bgStartId!=UIBackgroundTaskInvalid) [[UIApplication sharedApplication] endBackgroundTask:bgStartId];
     
     
-//    [self enableCodecs:linphone_core_get_audio_codecs([LinphoneManager getLc])];
-//    [self enableCodecs:linphone_core_get_video_codecs([LinphoneManager getLc])];
+    [self enableCodecs:linphone_core_get_audio_codecs([LinphoneManager getLc])];
+    [self enableCodecs:linphone_core_get_video_codecs([LinphoneManager getLc])];
     
     return YES;
 }

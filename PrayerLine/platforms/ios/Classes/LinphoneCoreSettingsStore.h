@@ -30,5 +30,6 @@
 
 - (void)synchronizeAccount;
 - (void)transformLinphoneCoreToKeys;
+- (void)switchAccount:(NSString*) username;
 
 @end

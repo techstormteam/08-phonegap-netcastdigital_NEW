@@ -8,6 +8,10 @@
 
 
 #import <Cordova/CDV.h>
+#include "linphone/linphonecore.h"
+#include "LinphoneCoreSettingsStore.h"
+
+#define NOT_REGISTERED @"NOT-REGISTERED"
 
 @interface LinPhonePlugin : CDVPlugin
 
@@ -26,5 +30,8 @@
 - (void) pauseSip:(CDVInvokedUrlCommand *)command;
 
 - (void) signOut:(CDVInvokedUrlCommand *)command;
+
++ (void)doProxyConfigUpdate:(LinphoneProxyConfig*)config;
++ (void)doSignOut:(NSString*)sipUsername domain:(NSString*)domain;
 
 @end
