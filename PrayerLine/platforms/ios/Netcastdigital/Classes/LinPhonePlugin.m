@@ -367,7 +367,7 @@
 }
 
 - (void)initUISpeaker {
-//    AudioSessionInitialize(NULL, NULL, NULL, NULL);
+    AudioSessionInitialize(NULL, NULL, NULL, NULL);
 //    OSStatus lStatus = AudioSessionAddPropertyListener(kAudioSessionProperty_AudioRouteChange, audioRouteChangeListenerCallback, self);
 //    if (lStatus) {
 //        [LinphoneLogger logc:LinphoneLoggerError format:"cannot register route change handler [%ld]",lStatus];
