@@ -2493,12 +2493,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57B0E360173C010400A476B8 /* libpolarssl.a in Frameworks */,
+				F476004B147AAF2800FFF19B /* liblinphone.a in Frameworks */,
 				D0857E2B1A15065700CEC2E3 /* libCordova.a in Frameworks */,
 				1560821F18EEF26100765332 /* libmsopenh264.a in Frameworks */,
 				22509042196BD902007863F6 /* libopenh264.a in Frameworks */,
 				15017E701773578400784ACB /* libxml2.a in Frameworks */,
 				22AF73C21754C0D100BE8398 /* libopus.a in Frameworks */,
-				57B0E360173C010400A476B8 /* libpolarssl.a in Frameworks */,
 				223CA7E616D9255800EF1BEC /* libantlr3c.a in Frameworks */,
 				223CA7E716D9255800EF1BEC /* libbellesip.a in Frameworks */,
 				045B5CB318D72E9A0088350C /* libbzrtp.a in Frameworks */,
@@ -2531,7 +2532,6 @@
 				22276E8413C73D3100210156 /* libavutil.a in Frameworks */,
 				220FAD3210765B400068D98F /* libgsm.a in Frameworks */,
 				223148E41178A08200637D6A /* libilbc.a in Frameworks */,
-				F476004B147AAF2800FFF19B /* liblinphone.a in Frameworks */,
 				D37EE10916032DA4003608A6 /* libmediastreamer_base.a in Frameworks */,
 				D37EE10A16032DA4003608A6 /* libmediastreamer_voip.a in Frameworks */,
 				226F2ED81344B0EF00F6EF27 /* libmsamr.a in Frameworks */,
@@ -5840,99 +5840,20 @@
 					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib",
 				);
 				LINK_WITH_STANDARD_LIBRARIES = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PrayerLine;
 				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
 				WARNING_CFLAGS = (
 					"-Werror=objc-method-access",
 					"-Werror=incomplete-implementation",
 				);
 			};
 			name = Debug;
-		};
-		228B19A61302902F00F154D3 /* DistributionAdhoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = NO;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_NAME = PrayerLine;
-				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
-				SDKROOT = iphoneos;
-				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = DistributionAdhoc;
-		};
-		228B19A71302902F00F154D3 /* DistributionAdhoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
-				COMPRESS_PNG_FILES = NO;
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = PrayerLine_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					VIDEO_ENABLED,
-					HAVE_SILK,
-					HAVE_SSL,
-				);
-				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/liblinphone-sdk/apple-darwin/include",
-					"$(SRCROOT)/Classes/Utils/NinePatch/",
-					"$(SRCROOT)/Classes/Utils/XMLRPC/",
-				);
-				INFOPLIST_FILE = "PrayerLine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)",
-					"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
-					"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib",
-					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib",
-				);
-				LINK_WITH_STANDARD_LIBRARIES = YES;
-				ORDER_FILE = "";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = PrayerLine;
-				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
-				SKIP_INSTALL = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WARNING_CFLAGS = (
-					"-Werror=objc-method-access",
-					"-Werror=incomplete-implementation",
-				);
-			};
-			name = DistributionAdhoc;
 		};
 		22D8F183147548E2008C97DB /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -5965,11 +5886,13 @@
 					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
 				);
 				LINK_WITH_STANDARD_LIBRARIES = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "PrayerLine-no-gpl-thirdparties";
 				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
 				SKIP_INSTALL = NO;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -6004,93 +5927,15 @@
 					"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib",
 				);
 				LINK_WITH_STANDARD_LIBRARIES = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "PrayerLine-no-gpl-thirdparties";
 				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
 				SKIP_INSTALL = NO;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
-		};
-		22D8F185147548E2008C97DB /* Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
-				COMPRESS_PNG_FILES = NO;
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = linphone_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					HAVE_OPENH264,
-					VIDEO_ENABLED,
-				);
-				HEADER_SEARCH_PATHS = (
-					"liblinphone-sdk/apple-darwin/include",
-					Classes/Utils/NinePatch/,
-					Classes/Utils/XMLRPC/,
-				);
-				INFOPLIST_FILE = "PrayerLine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)",
-					"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
-					"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib",
-				);
-				LINK_WITH_STANDARD_LIBRARIES = YES;
-				ORDER_FILE = "";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "PrayerLine-no-gpl-thirdparties";
-				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
-				SKIP_INSTALL = NO;
-			};
-			name = Distribution;
-		};
-		22D8F186147548E2008C97DB /* DistributionAdhoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
-				COMPRESS_PNG_FILES = NO;
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = linphone_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					HAVE_OPENH264,
-					VIDEO_ENABLED,
-				);
-				HEADER_SEARCH_PATHS = (
-					"liblinphone-sdk/apple-darwin/include",
-					Classes/Utils/NinePatch/,
-					Classes/Utils/XMLRPC/,
-				);
-				INFOPLIST_FILE = "PrayerLine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)",
-					"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
-					"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib",
-				);
-				LINK_WITH_STANDARD_LIBRARIES = YES;
-				ORDER_FILE = "";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "PrayerLine-no-gpl-thirdparties";
-				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
-				SKIP_INSTALL = NO;
-			};
-			name = DistributionAdhoc;
 		};
 		22F3D55513CC3C9100A0DA02 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -6115,11 +5960,13 @@
 				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = PrayerLine;
 				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
 				SDKROOT = iphoneos;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(OBJROOT)/UninstalledProducts/include";
 			};
 			name = Release;
 		};
@@ -6159,99 +6006,20 @@
 					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib",
 				);
 				LINK_WITH_STANDARD_LIBRARIES = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PrayerLine;
 				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
 				WARNING_CFLAGS = (
 					"-Werror=objc-method-access",
 					"-Werror=incomplete-implementation",
 				);
 			};
 			name = Release;
-		};
-		22F51EE7107FA53D00F98953 /* Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = NO;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = "";
-				PRODUCT_NAME = PrayerLine;
-				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
-				SDKROOT = iphoneos;
-				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Distribution;
-		};
-		22F51EE8107FA53D00F98953 /* Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
-				COMPRESS_PNG_FILES = NO;
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = PrayerLine_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					VIDEO_ENABLED,
-					HAVE_SILK,
-					HAVE_SSL,
-				);
-				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/liblinphone-sdk/apple-darwin/include",
-					"$(SRCROOT)/Classes/Utils/NinePatch/",
-					"$(SRCROOT)/Classes/Utils/XMLRPC/",
-				);
-				INFOPLIST_FILE = "PrayerLine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)",
-					"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
-					"$(SRCROOT)/liblinphone-sdk/apple-darwin/lib",
-					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib",
-				);
-				LINK_WITH_STANDARD_LIBRARIES = YES;
-				ORDER_FILE = "";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = PrayerLine;
-				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
-				SKIP_INSTALL = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WARNING_CFLAGS = (
-					"-Werror=objc-method-access",
-					"-Werror=incomplete-implementation",
-				);
-			};
-			name = Distribution;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -6282,6 +6050,7 @@
 				SDKROOT = iphoneos;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(OBJROOT)/UninstalledProducts/include";
 			};
 			name = Debug;
 		};
@@ -6391,106 +6160,6 @@
 			};
 			name = Release;
 		};
-		F08F119619C09C6B007D70C2 /* Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LinphoneTester.app/LinphoneTester";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LinphoneTester Tests/LinphoneTester Tests-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				HEADER_SEARCH_PATHS = (
-					"liblinphone-sdk/apple-darwin/include",
-					Classes/Utils/NinePatch/,
-					Classes/Utils/XMLRPC/,
-				);
-				INFOPLIST_FILE = "LinphoneTester Tests/LinphoneTester Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib",
-					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Distribution;
-		};
-		F08F119719C09C6B007D70C2 /* DistributionAdhoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LinphoneTester.app/LinphoneTester";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LinphoneTester Tests/LinphoneTester Tests-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				HEADER_SEARCH_PATHS = (
-					"liblinphone-sdk/apple-darwin/include",
-					Classes/Utils/NinePatch/,
-					Classes/Utils/XMLRPC/,
-				);
-				INFOPLIST_FILE = "LinphoneTester Tests/LinphoneTester Tests-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib",
-					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = DistributionAdhoc;
-		};
 		F0BB8C061936208200974404 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -6595,104 +6264,6 @@
 			};
 			name = Release;
 		};
-		F0BB8C081936208200974404 /* Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LinphoneTester/LinphoneTester-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				HEADER_SEARCH_PATHS = (
-					"liblinphone-sdk/apple-darwin/include",
-					Classes/Utils/NinePatch/,
-					Classes/Utils/XMLRPC/,
-				);
-				INFOPLIST_FILE = "LinphoneTester/LinphoneTester-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib",
-					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b16cf102-d1d6-44ea-80ce-ef7337931580";
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Distribution;
-		};
-		F0BB8C091936208200974404 /* DistributionAdhoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LinphoneTester/LinphoneTester-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				HEADER_SEARCH_PATHS = (
-					"liblinphone-sdk/apple-darwin/include",
-					Classes/Utils/NinePatch/,
-					Classes/Utils/XMLRPC/,
-				);
-				INFOPLIST_FILE = "LinphoneTester/LinphoneTester-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib",
-					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b16cf102-d1d6-44ea-80ce-ef7337931580";
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
-			};
-			name = DistributionAdhoc;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -6701,55 +6272,45 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				22F3D55613CC3C9100A0DA02 /* Release */,
-				22F51EE8107FA53D00F98953 /* Distribution */,
-				228B19A71302902F00F154D3 /* DistributionAdhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		22D8F182147548E2008C97DB /* Build configuration list for PBXNativeTarget "PrayerLine-no-gpl-thirdparties" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				22D8F183147548E2008C97DB /* Debug */,
 				22D8F184147548E2008C97DB /* Release */,
-				22D8F185147548E2008C97DB /* Distribution */,
-				22D8F186147548E2008C97DB /* DistributionAdhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PrayerLine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				22F3D55513CC3C9100A0DA02 /* Release */,
-				22F51EE7107FA53D00F98953 /* Distribution */,
-				228B19A61302902F00F154D3 /* DistributionAdhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		F08F119319C09C6B007D70C2 /* Build configuration list for PBXNativeTarget "LinphoneTester Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F08F119419C09C6B007D70C2 /* Debug */,
 				F08F119519C09C6B007D70C2 /* Release */,
-				F08F119619C09C6B007D70C2 /* Distribution */,
-				F08F119719C09C6B007D70C2 /* DistributionAdhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		F0BB8C051936208200974404 /* Build configuration list for PBXNativeTarget "LinphoneTester" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F0BB8C061936208200974404 /* Debug */,
 				F0BB8C071936208200974404 /* Release */,
-				F0BB8C081936208200974404 /* Distribution */,
-				F0BB8C091936208200974404 /* DistributionAdhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -6,7 +6,7 @@
 //
 //
 
-#import "LinPhonePlugin.h"
+#include "LinPhonePlugin.h"
 
 #include "LinphoneManager.h"
 #include "linphone/linphonecore.h"

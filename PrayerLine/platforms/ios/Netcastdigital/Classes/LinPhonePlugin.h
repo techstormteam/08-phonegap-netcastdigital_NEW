@@ -7,7 +7,7 @@
 //
 
 
-#import <Cordova/CDV.h>
+#include "Cordova/CDVViewController.h"
 #include "linphone/linphonecore.h"
 #include "LinphoneCoreSettingsStore.h"
 

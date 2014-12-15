@@ -41,7 +41,7 @@
 #include "LinphoneManager.h"
 #include "linphone/linphonecore.h"
 
-#import <Cordova/CDVPlugin.h>
+#import "Cordova/CDVPlugin.h"
 
 @implementation AppDelegate
 
