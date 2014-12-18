@@ -6,6 +6,10 @@
         <meta name="viewport" content="width=320, initial-scale=1" />
         <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <link rel="stylesheet" href="js/jquery-mobile/jquery.mobile.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/login.css">
         <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
         <script type="text/javascript" src="js/sweet-alert.js"></script>
         <script src="js/jquery/jquery.js"></script>
@@ -13,7 +17,7 @@
         <script src="js/class.logbucket.js"></script>
         <script src="js/class.user.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="cordova.js"></script>
+        <!--<script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/my_linphone.js"></script>
         <title>Login</title>
         <style>
@@ -76,14 +80,23 @@
                 <!-- END: Message Board -->
 
                 <center> <img src="img/prayerline_intro.png"> </center>
+                <form class="form" action="#" method="GET">
                 <div data-role="fieldcontain">
                     <label for="username">Username:</label>
                     <input type="text" placeholder="Username" id="username" value="" />
                 </div>
+                </form>
+                <form class="form" action="#" method="GET">
                 <div data-role="fieldcontain">
                     <label for="password">Password:</label>
-                    <input type="password" placeholder="Password" id="password" value=""  />
+                    <div class="input-group control-input">
+	                    <input type="password" placeholder="Password" id="password" value=""  />
+	                    <span class="input-group-addon" onclick="togglePasswordView(this)" style="cursor:pointer">
+		                    <span class="glyphicon glyphicon-eye-open"></span>
+		                </span>
+	                </div>
                 </div>
+                </form>
                 <div data-role="fieldcontain">
                     <button id="submit" onclick="check_form();" data-theme="e">Access PrayerLine</button>
                 </div>
@@ -173,6 +186,11 @@
                 global.set('auto_login', true);
                 global.api('login', {username: username, password: password}, login);
             }
+            
+            $(".form").submit(function(e){
+				check_form();
+			    return false;
+			});
         </script>
     </body>
 </html>
