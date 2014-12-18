@@ -5844,7 +5844,7 @@
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PrayerLine;
-				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
+				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s";
@@ -5892,7 +5892,7 @@
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "PrayerLine-no-gpl-thirdparties";
-				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
+				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
 				SKIP_INSTALL = NO;
 				VALID_ARCHS = "armv7 armv7s";
 			};
@@ -5935,7 +5935,7 @@
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "PrayerLine-no-gpl-thirdparties";
-				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
+				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
 				SKIP_INSTALL = NO;
 				VALID_ARCHS = "armv7 armv7s";
 			};
@@ -5967,7 +5967,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = PrayerLine;
-				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
+				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
 				SDKROOT = iphoneos;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6015,7 +6015,7 @@
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PrayerLine;
-				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
+				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s";
@@ -6052,7 +6052,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = PrayerLine;
-				PROVISIONING_PROFILE = "16e7e32e-e0cb-46ac-9280-03c9db45a2c1";
+				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
 				SDKROOT = iphoneos;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6110,7 +6110,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -6159,7 +6159,7 @@
 					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = xctest;
@@ -6216,7 +6216,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b16cf102-d1d6-44ea-80ce-ef7337931580";
+				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -6264,7 +6264,7 @@
 					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b16cf102-d1d6-44ea-80ce-ef7337931580";
+				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
