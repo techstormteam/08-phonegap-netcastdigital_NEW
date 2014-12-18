@@ -11,6 +11,9 @@
     <content src="index.html" />
     <access origin="*" />
     <feature name="LinPhonePlugin">
-       <param name="android-package" value="com.iderainc.prayerline.LinPhonePlugin" />
-	</feature>
+        <param name="android-package" value="com.iderainc.prayerline.LinPhonePlugin" />
+    </feature>
+    <feature name="PayPalMobile">
+        <param name="android-package" value="com.paypal.cordova.sdk.PayPalMobileCordovaPlugin" />
+    </feature>
 </widget>
