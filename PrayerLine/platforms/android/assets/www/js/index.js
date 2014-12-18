@@ -266,6 +266,35 @@ function Global() {
                                                });
     };
     
+    this.getInfoApi = function(cmd, data, callback_success, callback_error, callback_complete) {
+        var url = this.getSipUsernameUrl()+'?cmd=' + cmd + '&ts=' + Math.round(+new Date() / 1000);
+        if (this.debug === true) {
+            LogBucket.debug('7b61e6c1-90e8-477c-9a02-5e7be8ef32fa', 'Calling URL:' + url);
+        }
+        $.ajax({
+               type: 'GET',
+               url: url,
+               crossDomain: false,
+               cache: false,
+               data: data
+               }).success(function(data) {
+                          if (this.debug === true) {
+                          LogBucket.debug('7b61e6c1-90e8-477c-9a02-5e7be8ef32fa', 'Response: ');
+                          }
+                          callback_success(data);
+                          }).error(function(xhr, status, error) {
+                                   if (this.debug === true) {
+                                   LogBucket.debug('7b61e6c1-90e8-477c-9a02-5e7be8ef32fa', 'Error: ');
+                                   }
+                                   var msg = "<span style='color:red;'>There was an error</span>";
+                                   $('#message').html(msg).show();
+                                   }).complete(function() {
+                                               if (this.debug === true) {
+                                               LogBucket.debug('7b61e6c1-90e8-477c-9a02-5e7be8ef32fa', 'End');
+                                               }
+                                               });
+    };
+    
     /*
      * 
      * @param {type} title
