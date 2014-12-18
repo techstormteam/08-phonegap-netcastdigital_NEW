@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		045B5CB318D72E9A0088350C /* libbzrtp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 045B5CB218D72E9A0088350C /* libbzrtp.a */; };
 		15017E701773578400784ACB /* libxml2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15017E6F1773578400784ACB /* libxml2.a */; };
@@ -1473,6 +1472,8 @@
 		F84015C01939FE37006ABAB5 /* test_inprogress.png in Resources */ = {isa = PBXBuildFile; fileRef = F84015BD1939FE37006ABAB5 /* test_inprogress.png */; };
 		F84015C11939FE37006ABAB5 /* test_passed.png in Resources */ = {isa = PBXBuildFile; fileRef = F84015BE1939FE37006ABAB5 /* test_passed.png */; };
 		F84015C7193B4E34006ABAB5 /* LogsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F84015C6193B4E34006ABAB5 /* LogsViewController.m */; };
+		615D357681F748C69FBBE5F4 /* PayPalMobileCordovaPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 264CF9E7F9CC4A6D8F43748F /* PayPalMobileCordovaPlugin.m */; };
+		BD7690F80C6E4A619B994B72 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C78E7AB417434F529879A47F /* CoreLocation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2486,6 +2487,9 @@
 		FD61C862169FC495001AA2D6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/HistoryDetailsViewController.xib; sourceTree = "<group>"; };
 		FD61C88216A00E69001AA2D6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/UICallCell.xib; sourceTree = "<group>"; };
 		FD979F30169E84670022A8B4 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = Resources/ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		264CF9E7F9CC4A6D8F43748F /* PayPalMobileCordovaPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PayPalMobileCordovaPlugin.m"; path = "Plugins/com.paypal.cordova.mobilesdk/PayPalMobileCordovaPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		528F2BA3101C4C5181D25E1D /* PayPalMobileCordovaPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PayPalMobileCordovaPlugin.h"; path = "Plugins/com.paypal.cordova.mobilesdk/PayPalMobileCordovaPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		C78E7AB417434F529879A47F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2550,6 +2554,7 @@
 				D30BF33416A427D300AF0026 /* libtunnel.a in Frameworks */,
 				7066FC0C13E830E400EFC6DC /* libvpx.a in Frameworks */,
 				22AA8AFD13D7125600B30535 /* libx264.a in Frameworks */,
+				BD7690F80C6E4A619B994B72 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2991,6 +2996,7 @@
 				2264B6D111200342002C2C53 /* SystemConfiguration.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				F03A9B3318C0CF7000C4D7FE /* XCTest.framework */,
+				C78E7AB417434F529879A47F /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3015,6 +3021,8 @@
 		D0EB66A21A1489A2000E9ABC /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				264CF9E7F9CC4A6D8F43748F /* PayPalMobileCordovaPlugin.m */,
+				528F2BA3101C4C5181D25E1D /* PayPalMobileCordovaPlugin.h */,
 			);
 			name = Plugins;
 			sourceTree = "<group>";
@@ -3926,7 +3934,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 610;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = U9ZV3HH4BT;
@@ -5309,6 +5317,7 @@
 				D35E91F8160CA4FF0023116B /* UILinphoneButton.m in Sources */,
 				D306459E1611EC2A00BB571E /* UILoadingImageView.m in Sources */,
 				D37E3ECD1619C27A0087659A /* CAAnimation+Blocks.m in Sources */,
+				615D357681F748C69FBBE5F4 /* PayPalMobileCordovaPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
