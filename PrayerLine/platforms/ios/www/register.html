@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=320, initial-scale=1" />
         <link rel="stylesheet" href="css/jquery-ui.css">
         <link rel="stylesheet" href="js/jquery-mobile/jquery.mobile.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
         <link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
         <script type="text/javascript" src="js/sweet-alert.js"></script>
         <script src="js/jquery/jquery.js"></script>
@@ -42,34 +45,64 @@
                 <div id="message"></div>
                 <!-- END: Message Board -->
 
+				<form class="form" action="#" method="GET">
                 <div data-role="fieldcontain">
                     <label for="firstName">First Name:</label>
                     <input type="text" placeholder="" id="firstName" value="" />
                 </div>
+                </form>
+                
+                <form class="form" action="#" method="GET">
                 <div data-role="fieldcontain">
                     <label for="lastName">Last Name:</label>
                     <input type="text" placeholder="" id="lastName" value=""  />
                 </div>
+                </form>
+                
+                <form class="form" action="#" method="GET">
                 <div data-role="fieldcontain">
                     <label for="email">Email:</label>
                     <input type="text" placeholder="" id="email" value=""  />
                 </div>
+                </form>
+                
+                <form class="form" action="#" method="GET">
                 <div data-role="fieldcontain">
                     <label for="phone">Phone:</label>
                     <input type="text" placeholder="" id="phone" value=""  />
                 </div>
+                </form>
+                
+                <form class="form" action="#" method="GET">
                 <div data-role="fieldcontain">
                     <label for="password">Password:</label>
-                    <input type="password" placeholder="" id="password" value=""  />
+                    <div class="input-group control-input">
+	                    <input type="password" placeholder="" id="password" value=""  />
+	                    <span class="input-group-addon" onclick="togglePasswordView(this)" style="cursor:pointer">
+		                    <span class="glyphicon glyphicon-eye-open"></span>
+		                </span>
+	                </div>
                 </div>
+                </form>
+                
+                <form class="form" action="#" method="GET">
                 <div data-role="fieldcontain">
                     <label for="password_re"> Re-enter Password:</label>
-                    <input type="password" placeholder="" id="password_re" value=""  />
+                    <div class="input-group control-input">
+	                    <input type="password" placeholder="" id="password_re" value=""  />
+	                    <span class="input-group-addon" onclick="togglePasswordView(this)" style="cursor:pointer">
+		                    <span class="glyphicon glyphicon-eye-open"></span>
+		                </span>
+	                </div>
                 </div>
+                </form>
+                
+                <form class="form" action="#" method="GET">
                 <div data-role="fieldcontain">
                     <label for="prayerline">Prayerline: </label>
                     <input id="prayerline">
                 </div>
+                </form>
 
                 <div data-role="fieldcontain">
                     <button id="submit" data-theme="e" onclick="check_form();">Submit</button>
@@ -183,6 +216,11 @@
                 global.set('auto_login', true);
                 global.api('login', {username: username, password: password}, login);
             }
+            
+            $(".form").submit(function(e){
+				check_form();
+			    return false;
+			});
         </script>
     </body>
 </html>

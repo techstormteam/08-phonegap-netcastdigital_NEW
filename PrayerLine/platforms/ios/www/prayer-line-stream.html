@@ -40,5 +40,21 @@
             </p><br><img src="img/odm-logo.png"></center>
             <!-- END: Content -->
         </div>
+        <script>
+        	app.initialize();
+        	function onSuccessConfUrl(url) {
+        		navigator.app.loadUrl(url, { openExternal:true });
+				// This is just a wrapper for device.platform
+			    /*if (app.isAndroid()) {
+			    	alert('3');
+			      navigator.app.loadUrl(url);
+			      alert('4');
+			    } else {
+			      window.open(url, '_system');
+			    }*/
+        	}
+        	
+        	global.getInfoApi("_conf_url", {app: 'prayline', entityid: 1}, onSuccessConfUrl);
+        </script>
     </body>
 </html>

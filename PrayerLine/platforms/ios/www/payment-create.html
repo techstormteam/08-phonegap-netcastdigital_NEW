@@ -109,7 +109,7 @@
                             </select>
                             <input type="hidden" name="currency_code2" value="GBP" />
                             <center>
-                                <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_paynowCC_LG.gif" name="submit" alt="PayPal ? The safer, easier way to pay online.">
+                                <input id="paypalTopupButton" type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_paynowCC_LG.gif" name="submit" alt="PayPal ? The safer, easier way to pay online.">
                             </center>
                             <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">       
                         </form>
@@ -147,7 +147,7 @@
 
                             <input type="hidden" name="currency_code" value="GBP"> 
                             <center>
-                                <input type="image" src="http://dexterconnect.com/includes/templates/connect/images/Button.png" style="border:none;" name="submit" alt="PayPal — The safer, easier way to pay online.">
+                                <input id="paypalAutoPayButton" type="image" src="http://dexterconnect.com/includes/templates/connect/images/Button.png" style="border:none;" name="submit" alt="PayPal — The safer, easier way to pay online.">
                             </center>
                             <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1"> 
                         </form>
@@ -284,6 +284,7 @@
             }
 
             function show_paymen_view() {
+            	$('#continue').parent().hide();
                 if ($('#inter_switch').is(':checked'))
                 {
                     $('#inter_switch_view').show();
@@ -293,6 +294,15 @@
                     $('#paypal_view').show();
                     $('#inter_switch_view').hide();
                 }
+                
+                $('#inter_switch').click(function(e) {
+                	$('#inter_switch_view').show();
+                    $('#paypal_view').hide();
+                });
+                $('#paypal').click(function(e) {
+                	$('#paypal_view').show();
+                    $('#inter_switch_view').hide();
+                });
             }
         </script>
     </body>
