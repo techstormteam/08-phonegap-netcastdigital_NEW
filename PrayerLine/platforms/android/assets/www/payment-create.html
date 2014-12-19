@@ -15,6 +15,8 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/my_linphone.js"></script>
+        <script type="text/javascript" src="js/paypal-mobile-js-helper.js"></script>
+		<script type="text/javascript" src="js/cdv-plugin-paypal-mobile-sdk.js"></script>
         <link rel="stylesheet" href="js/jquery-mobile-datebox/jqm-datebox.min.css" />
         <link rel="stylesheet" href="css/common.css" />
         <script src="js/jquery-mobile-datebox/jqm-datebox.core.min.js"></script>
@@ -81,7 +83,7 @@
                 <div id="paypal_view" style="display: none;">
                     <!-- START: PayPal Topup -->
                     <div id="paypalTopup">
-                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post">-->
                             <input type="hidden" name="cmd" value="_xclick">
                             <input type="hidden" name="business" value="ZRX6JLVU7XXM6">
                             <input type="hidden" name="lc" value="GB">
@@ -109,17 +111,17 @@
                             </select>
                             <input type="hidden" name="currency_code2" value="GBP" />
                             <center>
-                                <input id="paypalTopupButton" type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_paynowCC_LG.gif" name="submit" alt="PayPal ? The safer, easier way to pay online.">
+                                <input id="paypalTopupButton" type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_paynowCC_LG.gif" alt="PayPal ? The safer, easier way to pay online.">
                             </center>
                             <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">       
-                        </form>
+                        <!--</form>-->
                     </div>
                     <!-- END: PayPal Topup -->
                     <hr>
 
                     <!-- START: PayPal AutoPay -->
                     <div id="paypalAutopay">
-                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                        <!--<form action="https://www.paypal.com/cgi-bin/webscr" method="post">-->
                             <input type="hidden" name="cmd" value="_xclick-subscriptions">
                             <input id="paypal_custom_autoplay" type="hidden" name="custom" value="">
                             <input type="hidden" name="business" value="ZRX6JLVU7XXM6"> <input type="hidden" name="lc" value="GB">
@@ -147,10 +149,10 @@
 
                             <input type="hidden" name="currency_code" value="GBP"> 
                             <center>
-                                <input id="paypalAutoPayButton" type="image" src="http://dexterconnect.com/includes/templates/connect/images/Button.png" style="border:none;" name="submit" alt="PayPal — The safer, easier way to pay online.">
+                                <input id="paypalAutoPayButton" type="image" src="http://dexterconnect.com/includes/templates/connect/images/Button.png" style="border:none;" alt="PayPal — The safer, easier way to pay online.">
                             </center>
                             <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1"> 
-                        </form>
+                        <!--</form>-->
                     </div>
                     <!-- END: PayPal AutoPay-->
                 </div>
