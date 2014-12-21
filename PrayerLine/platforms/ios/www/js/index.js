@@ -56,6 +56,9 @@ var app = {
         	var user = global.getUser();
         	global.getSipUsernameApi(user.data.email, user.data.uipass, app.sipRegister);
         	global.general();
+        	
+        	// start to initialize PayPalMobile library
+            global.initPaymentUI();
         }
     }
 };
@@ -364,6 +367,58 @@ function Global() {
     this.general = function () {
     	this.registerScheduled();
     };
+    
+    this.initPaymentUI = function () {
+        var clientIDs = {
+        	"PayPalEnvironmentProduction": "Af5OMBDPiR6VBFuSRvHX0zDUzs8mlZKXxKg7MC9_-Wzql61o-0f3lQbbB3-m"
+	        ,"PayPalEnvironmentSandbox": "AaAKIxBQm2C5B81YE0hrTaJfFieg597VBHPpnA3vydQdWkSKREaPVnXmIOMO"
+        };
+        PayPalMobile.init(clientIDs, global.onPayPalMobileInit);
+	};
+	    
+	this.onSuccesfulPayment = function(payment) {
+	    console.log("payment success: " + JSON.stringify(payment, null, 4));
+	};
+	this.onFuturePaymentAuthorization = function(authorization) {
+		console.log("authorization: " + JSON.stringify(authorization, null, 4));
+	};
+	this.createPayment = function () {
+	    // for simplicity use predefined amount
+	    
+	    var paypalTopup = $('#paypalTopup');
+	    var amount = paypalTopup.find('[name="amount"]').val();
+	    alert(amount);
+	    var paymentDetails = new PayPalPaymentDetails(amount, "0", "0");
+	    alert('ne');
+	    var payment = new PayPalPayment(amount, "GBP", "[GBP] WebPAYG", "Sale", paymentDetails);
+	    alert('ne11');
+	    return payment;
+	};
+	this.configuration = function () {
+	    // for more options see `paypal-mobile-js-helper.js`
+	    var config = new PayPalConfiguration({merchantName: "DexterTech UK Ltd", merchantPrivacyPolicyURL: "http://www.yarn-me.com/cookies-and-privacy-policy", merchantUserAgreementURL: "http://www.yarn-me.com/terms-of-use"});
+	    return config;
+	};
+	this.onPrepareRender = function() {
+	    var paypalTopupButton = document.getElementById("paypalTopupButton");
+	    var paypalAutoPayButton = document.getElementById("paypalAutoPayButton");
+	    paypalTopupButton.onclick = function(e) {
+		    // single payment
+		    PayPalMobile.renderSinglePaymentUI(global.createPayment(), global.onSuccesfulPayment, global.onUserCanceled);
+	    };
+	    paypalAutoPayButton.onclick = function(e) {
+		    // future payment
+		    PayPalMobile.renderFuturePaymentUI(global.onFuturePaymentAuthorization, global.onUserCanceled);
+	    };
+	};
+	this.onPayPalMobileInit = function() {
+	    // must be called
+	    // use PayPalEnvironmentNoNetwork mode to get look and feel of the flow
+	    PayPalMobile.prepareToRender("PayPalEnvironmentProduction", global.configuration(), global.onPrepareRender);
+	};
+	this.onUserCanceled = function(result) {
+		console.log(result);
+	};
 }
 
 
