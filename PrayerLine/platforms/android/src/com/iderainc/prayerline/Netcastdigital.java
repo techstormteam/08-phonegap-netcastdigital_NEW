@@ -44,7 +44,8 @@ public class Netcastdigital extends CordovaActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// Set by <content src="index.html" /> in config.xml
-		loadUrl(launchUrl);
+//		super.setIntegerProperty("loadUrlTimeoutValue", 70000);
+		loadUrl("file:///android_asset/www/index.html");
 		
 		SIP_DOMAIN = getResources().getString(R.string.sip_domain);
 		SIP_USERNAME = getResources().getString(R.string.sip_username);
