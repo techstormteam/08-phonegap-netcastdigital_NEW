@@ -224,6 +224,8 @@
 		D0AE030D1A43EAEF00CBACFB /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AE03051A43EAEF00CBACFB /* libPayPalMobile.a */; };
 		D0B56A541A46EB2700962E7B /* PayPalMobileCordovaPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B56A531A46EB2700962E7B /* PayPalMobileCordovaPlugin.m */; };
 		D0B56A591A48045500962E7B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0BB8BF11936208200974404 /* Images.xcassets */; };
+		D0E5D8AA1A4C772B000CB229 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E5D8A91A4C772B000CB229 /* FacebookConnectPlugin.m */; };
+		D0E5D8AD1A4C7785000CB229 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E5D8AC1A4C7785000CB229 /* FacebookSDK.framework */; };
 		D0EB64EE1A14893E000E9ABC /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = D0EB64ED1A14893E000E9ABC /* config.xml */; };
 		D0EB66A11A148985000E9ABC /* www in Resources */ = {isa = PBXBuildFile; fileRef = D0EB66A01A148985000E9ABC /* www */; };
 		D0EB66AD1A1489FD000E9ABC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EB66A51A1489FD000E9ABC /* AppDelegate.m */; };
@@ -1730,6 +1732,9 @@
 		D0AE030C1A43EAEF00CBACFB /* PayPalProfileSharingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalProfileSharingViewController.h; sourceTree = "<group>"; };
 		D0B56A521A46EB2700962E7B /* PayPalMobileCordovaPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalMobileCordovaPlugin.h; path = Netcastdigital/Plugins/com.paypal.cordova.mobilesdk/PayPalMobileCordovaPlugin.h; sourceTree = "<group>"; };
 		D0B56A531A46EB2700962E7B /* PayPalMobileCordovaPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PayPalMobileCordovaPlugin.m; path = Netcastdigital/Plugins/com.paypal.cordova.mobilesdk/PayPalMobileCordovaPlugin.m; sourceTree = "<group>"; };
+		D0E5D8A81A4C772B000CB229 /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookConnectPlugin.h; path = Netcastdigital/Plugins/com.phonegap.plugins.facebookconnect/FacebookConnectPlugin.h; sourceTree = "<group>"; };
+		D0E5D8A91A4C772B000CB229 /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookConnectPlugin.m; path = Netcastdigital/Plugins/com.phonegap.plugins.facebookconnect/FacebookConnectPlugin.m; sourceTree = "<group>"; };
+		D0E5D8AC1A4C7785000CB229 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		D0EB64E61A14888F000E9ABC /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		D0EB64ED1A14893E000E9ABC /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = config.xml; path = Netcastdigital/config.xml; sourceTree = "<group>"; };
 		D0EB66A01A148985000E9ABC /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
@@ -2516,6 +2521,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0E5D8AD1A4C7785000CB229 /* FacebookSDK.framework in Frameworks */,
 				2264B6D211200342002C2C53 /* SystemConfiguration.framework in Frameworks */,
 				D37DC7181594AF3400B2A5EB /* MessageUI.framework in Frameworks */,
 				BD7690F80C6E4A619B994B72 /* CoreLocation.framework in Frameworks */,
@@ -2951,6 +2957,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0E5D8AC1A4C7785000CB229 /* FacebookSDK.framework */,
 				22509041196BD902007863F6 /* libopenh264.a */,
 				223CA7E416D9255800EF1BEC /* libantlr3c.a */,
 				22276E8013C73D3100210156 /* libavcodec.a */,
@@ -3065,6 +3072,8 @@
 		D0EB66A21A1489A2000E9ABC /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				D0E5D8A81A4C772B000CB229 /* FacebookConnectPlugin.h */,
+				D0E5D8A91A4C772B000CB229 /* FacebookConnectPlugin.m */,
 				D0B56A521A46EB2700962E7B /* PayPalMobileCordovaPlugin.h */,
 				D0B56A531A46EB2700962E7B /* PayPalMobileCordovaPlugin.m */,
 			);
@@ -5347,6 +5356,7 @@
 				D3807FFA15C2894A005BE9BC /* IASKPSTextFieldSpecifierViewCell.m in Sources */,
 				631C4FB719D2C3A6004BFE77 /* UIDigitButtonLongVoiceMail.m in Sources */,
 				D3807FFC15C2894A005BE9BC /* IASKPSTitleValueSpecifierViewCell.m in Sources */,
+				D0E5D8AA1A4C772B000CB229 /* FacebookConnectPlugin.m in Sources */,
 				D3807FFE15C2894A005BE9BC /* IASKSlider.m in Sources */,
 				D380800015C2894A005BE9BC /* IASKSwitch.m in Sources */,
 				D380800215C2894A005BE9BC /* IASKTextField.m in Sources */,
@@ -5867,7 +5877,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -6045,7 +6055,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = s;

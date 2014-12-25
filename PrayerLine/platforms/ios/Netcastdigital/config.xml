@@ -25,6 +25,12 @@
     <feature name="PayPalMobile">
         <param name="ios-package" value="PayPalMobileCordovaPlugin" />
     </feature>
+    <feature name="FacebookConnectPlugin">
+        <param name="ios-package" value="FacebookConnectPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin" />
+    
     <name>Netcastdigital</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
