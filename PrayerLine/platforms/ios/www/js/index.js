@@ -667,11 +667,11 @@ var loginFacebook = function () {
         var appId = prompt("Enter FB Application ID", "");
         facebookConnectPlugin.browserInit(appId);
     }
-                              alert('d');
+
     facebookConnectPlugin.login( ["email"],
                           function (response) { alert(JSON.stringify(response)) },
                           function (response) { alert(JSON.stringify(response)) });
-                              alert('d111');
+
 }
 
 var showDialog = function () {
