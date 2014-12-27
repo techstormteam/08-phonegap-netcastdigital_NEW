@@ -9,6 +9,11 @@
     "installed_plugins": {
         "com.paypal.cordova.mobilesdk": {
             "PACKAGE_NAME": "com.techstorm.netcastdigital"
+        },
+        "com.phonegap.plugins.facebookconnect": {
+            "APP_ID": "387577554752345",
+            "APP_NAME": "PrayerLine",
+            "PACKAGE_NAME": "com.techstorm.netcastdigital"
         }
     },
     "dependent_plugins": {}
