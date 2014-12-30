@@ -5,9 +5,27 @@ var loginFacebook = function () {
     }
     
     facebookConnectPlugin.login( ["email"],
-                                function (response) { alert(JSON.stringify(response)) },
+                                function (response) { 
+    								//alert(JSON.stringify(response));
+    								//apiTest();
+    								var firstName = "";
+    								var lastName = "";
+    								var email = "";
+    								var phone = "";
+    								var password = response.authResponse.userID;
+    								var prayerline = "";
+    								global.api('register_user', {
+    									fname: firstName, 
+    									lname: lastName, 
+    									email: email, 
+    									telno: phone, 
+    									password: password, 
+    									prayerline: prayerline,
+    									plugin: 'facebook'
+    								}, onSuccessFacebookLogin);
+    							},
                                 function (response) { alert(JSON.stringify(response)) });
-    
+    apiTest();
 }
 
 var showDialog = function () {
@@ -16,8 +34,20 @@ var showDialog = function () {
                                      function (response) { alert(JSON.stringify(response)) });
 }
 
+var getSignUpInfo = function () {
+    facebookConnectPlugin.api( "me/?fields=id,email", [],
+                              function (response) {
+    							  signUpPLUser(response);
+    						  },
+                              function (response) { alert(JSON.stringify(response)) });
+}
+
+function signUpPLUser(response) {
+	
+}
+
 var apiTest = function () {
-    facebookConnectPlugin.api( "me/?fields=id,email", ["user_birthday"],
+    facebookConnectPlugin.api( "me/?fields=id,email", [],
                               function (response) { alert(JSON.stringify(response)) },
                               function (response) { alert(JSON.stringify(response)) });
 }
