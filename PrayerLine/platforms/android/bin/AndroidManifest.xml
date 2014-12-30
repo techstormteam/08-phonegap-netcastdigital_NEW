@@ -1,87 +1,89 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<manifest android:hardwareAccelerated="true" android:versionCode="1" android:versionName="1.0.44" package="com.iderainc.prayerline" xmlns:android="http://schemas.android.com/apk/res/android">
-  <permission android:name="org.linphone.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
-  <uses-permission android:name="org.linphone.permission.C2D_MESSAGE"/>
-  <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
-  <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-  <uses-permission android:name="android.permission.READ_CONTACTS"/>
-  <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-  <uses-permission android:name="android.permission.WAKE_LOCK"/>
-  <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
-  <uses-permission android:name="android.permission.CALL_PHONE"/>
-  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-  <uses-permission android:name="android.permission.VIBRATE"/>
-  <uses-permission android:name="android.permission.CAMERA"/>
-  <uses-permission android:name="android.permission.READ_LOGS"/>
-  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
-  <uses-permission android:name="android.permission.BLUETOOTH"/>
-  <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
-  <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-  <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-  <uses-feature android:name="android.hardware.telephony" android:required="false"/>
-  <uses-feature android:name="android.hardware.camera" android:required="false"/>
-  <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
-  <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
-  <application android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@android:style/Theme.Light">
-    <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="Netcastdigital" android:windowSoftInputMode="adjustResize">
-      <intent-filter android:label="@string/launcher_name">
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
-    </activity>
-    <activity android:launchMode="singleTask" android:name="org.linphone.LinphoneActivity" android:screenOrientation="behind" android:theme="@style/NoTitle">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-      </intent-filter>
-    </activity>
-    <activity android:launchMode="singleTop" android:name="org.linphone.InCallActivity" android:noHistory="true" android:theme="@style/FullScreen">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-      </intent-filter>
-    </activity>
-    <activity android:name="com.paypal.android.sdk.payments.PaymentActivity"/>
-    <activity android:name="com.paypal.android.sdk.payments.LoginActivity"/>
-    <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity"/>
-    <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity"/>
-    <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity"/>
-    <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity"/>
-    <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity"/>
-    <activity android:name="com.paypal.android.sdk.payments.PayPalProfileSharingActivity"/>
-    <activity android:name="com.paypal.android.sdk.payments.ProfileSharingConsentActivity"/>
-    <activity android:configChanges="keyboardHidden|orientation" android:name="io.card.payment.CardIOActivity"/>
-    <activity android:name="io.card.payment.DataEntryActivity"/>
-    <service android:label="@string/service_name" android:name="com.iderainc.prayerline.LinphoneService" android:stopWithTask="false"/>
-    <service android:name="org.linphone.gcm.GCMService"/>
-    <service android:exported="false" android:name="com.paypal.android.sdk.payments.PayPalService"/>
-    <receiver android:name="com.iderainc.prayerline.NetworkManager">
-      <intent-filter>
-        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-      </intent-filter>
-    </receiver>
-    <receiver android:name="com.iderainc.prayerline.BluetoothManager"/>
-    <receiver android:name="com.iderainc.prayerline.BootReceiver">
-      <intent-filter>
-        <action android:name="android.intent.action.BOOT_COMPLETED"/>
-      </intent-filter>
-    </receiver>
-    <receiver android:name="com.iderainc.prayerline.PhoneStateChangedReceiver">
-      <intent-filter>
-        <action android:name="android.intent.action.PHONE_STATE"/>
-      </intent-filter>
-    </receiver>
-    <receiver android:name="KeepAliveHandler"/>
-    <receiver android:name="org.linphone.gcm.GCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
-      <intent-filter>
-        <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
-        <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
-        <category android:name="com.iderainc.prayerline"/>
-      </intent-filter>
-    </receiver>
-  </application>
-  <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19"/>
+<?xml version='1.0' encoding='utf-8'?>
+<manifest android:hardwareAccelerated="true" android:versionCode="10045" android:versionName="1.0.45" package="com.iderainc.prayerline" xmlns:android="http://schemas.android.com/apk/res/android">
+    <permission android:name="org.linphone.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+    <uses-permission android:name="org.linphone.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true" />
+    <application android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@android:style/Theme.Light">
+        <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="Netcastdigital" android:windowSoftInputMode="adjustResize">
+            <intent-filter android:label="@string/launcher_name">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTask" android:name="org.linphone.LinphoneActivity" android:screenOrientation="behind" android:theme="@style/NoTitle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:launchMode="singleTop" android:name="org.linphone.InCallActivity" android:noHistory="true" android:theme="@style/FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.paypal.android.sdk.payments.PaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.LoginActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PayPalFuturePaymentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentConsentActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.FuturePaymentInfoActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.PayPalProfileSharingActivity" />
+        <activity android:name="com.paypal.android.sdk.payments.ProfileSharingConsentActivity" />
+        <activity android:configChanges="keyboardHidden|orientation" android:name="io.card.payment.CardIOActivity" />
+        <activity android:name="io.card.payment.DataEntryActivity" />
+        <service android:label="@string/service_name" android:name="com.iderainc.prayerline.LinphoneService" android:stopWithTask="false" />
+        <service android:name="org.linphone.gcm.GCMService" />
+        <service android:exported="false" android:name="com.paypal.android.sdk.payments.PayPalService" />
+        <receiver android:name="com.iderainc.prayerline.NetworkManager">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.iderainc.prayerline.BluetoothManager" />
+        <receiver android:name="com.iderainc.prayerline.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.iderainc.prayerline.PhoneStateChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="KeepAliveHandler" />
+        <receiver android:name="org.linphone.gcm.GCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="com.iderainc.prayerline" />
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/fb_app_id" />
+        <activity android:label="@string/fb_app_name" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    </application>
+    <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="19" />
 </manifest>
