@@ -14,6 +14,10 @@
             "APP_ID": "387577554752345",
             "APP_NAME": "PrayerLine",
             "PACKAGE_NAME": "com.techstorm.netcastdigital"
+        },
+        "com.cabot.plugins.googleplus": {
+            "CLIENT_ID": "581179436125-2829it9jsf8g90710c3knjbitnfcb4bk.apps.googleusercontent.com",
+            "PACKAGE_NAME": "com.techstorm.netcastdigital"
         }
     },
     "dependent_plugins": {}

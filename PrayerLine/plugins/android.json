@@ -35,6 +35,10 @@
                         {
                             "xml": "<access origin=\"https://*.akamaihd.net\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"GoogleConnectPlugin\"><param name=\"android-package\" value=\"com.cabot.plugins.googleplus.ConnectGoogle\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -68,6 +72,14 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.USE_CREDENTIALS\" />",
                             "count": 1
                         }
                     ],
@@ -119,6 +131,10 @@
                         {
                             "xml": "<activity android:name=\"io.card.payment.DataEntryActivity\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<meta-data android:name=\"com.google.android.gms.version\" android:value=\"@integer/google_play_services_version\" />",
+                            "count": 1
                         }
                     ],
                     "application": [
@@ -156,6 +172,10 @@
         "com.phonegap.plugins.facebookconnect": {
             "APP_ID": "387577554752345",
             "APP_NAME": "PrayerLine",
+            "PACKAGE_NAME": "com.iderainc.prayerline"
+        },
+        "com.cabot.plugins.googleplus": {
+            "CLIENT_ID": "581179436125-2829it9jsf8g90710c3knjbitnfcb4bk.apps.googleusercontent.com",
             "PACKAGE_NAME": "com.iderainc.prayerline"
         }
     },
