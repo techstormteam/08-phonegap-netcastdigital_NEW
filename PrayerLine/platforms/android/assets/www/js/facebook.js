@@ -26,7 +26,7 @@ var getSignUpInfo = function () {
 }
 
 function signUpPLUser(response) {
-	alert(JSON.stringify(response))
+	//alert(JSON.stringify(response))
 	var firstName = response.first_name;
 	var lastName = response.last_name;
 	var email = response.email;
@@ -45,7 +45,7 @@ function signUpPLUser(response) {
 }
 
 function onSuccessRegisterPLUser(response) {
-	alert(JSON.stringify(response))
+	//alert(JSON.stringify(response))
 }
 
 var apiTest = function () {
