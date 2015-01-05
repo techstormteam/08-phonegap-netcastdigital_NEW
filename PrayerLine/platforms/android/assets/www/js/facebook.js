@@ -6,7 +6,7 @@ var loginFacebook = function () {
     
     facebookConnectPlugin.login( ["email"],
                                 function (response) { 
-    								getSignUpInfo();
+    								getSignUpInfoFacebook();
     							},
                                 function (response) { alert(JSON.stringify(response)) });
 }
@@ -17,15 +17,15 @@ var showDialog = function () {
                                      function (response) { alert(JSON.stringify(response)) });
 }
 
-var getSignUpInfo = function () {
+var getSignUpInfoFacebook = function () {
     facebookConnectPlugin.api( "me", [],
                               function (response) {
-    							  signUpPLUser(response);
+    							signUpPLUserFacebook(response);
     						  },
                               function (response) { alert(JSON.stringify(response)) });
 }
 
-function signUpPLUser(response) {
+function signUpPLUserFacebook(response) {
 	//alert(JSON.stringify(response))
 	var firstName = response.first_name;
 	var lastName = response.last_name;
@@ -41,10 +41,10 @@ function signUpPLUser(response) {
 		password: password, 
 		prayerline: prayerline,
 		plugin: 'facebook'
-	}, onSuccessRegisterPLUser);
+	}, onSuccessRegisterPLUserFacebook);
 }
 
-function onSuccessRegisterPLUser(response) {
+function onSuccessRegisterPLUserFacebook(response) {
 	//alert(JSON.stringify(response))
 }
 
