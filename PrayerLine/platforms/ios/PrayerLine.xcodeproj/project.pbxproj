@@ -224,6 +224,14 @@
 		D0AE030D1A43EAEF00CBACFB /* libPayPalMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AE03051A43EAEF00CBACFB /* libPayPalMobile.a */; };
 		D0B56A541A46EB2700962E7B /* PayPalMobileCordovaPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B56A531A46EB2700962E7B /* PayPalMobileCordovaPlugin.m */; };
 		D0B56A591A48045500962E7B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0BB8BF11936208200974404 /* Images.xcassets */; };
+		D0D016091A5B9A6100F2E590 /* GoogleConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D016081A5B9A6100F2E590 /* GoogleConnectPlugin.m */; };
+		D0D0160E1A5B9A9200F2E590 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D0160B1A5B9A9200F2E590 /* GoogleOpenSource.framework */; };
+		D0D0160F1A5B9A9200F2E590 /* GooglePlus.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D0160C1A5B9A9200F2E590 /* GooglePlus.bundle */; };
+		D0D016101A5B9A9200F2E590 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D0160D1A5B9A9200F2E590 /* GooglePlus.framework */; };
+		D0D016131A5BA2AB00F2E590 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D016121A5BA2AB00F2E590 /* Accounts.framework */; };
+		D0D016151A5BA2DE00F2E590 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D016141A5BA2DE00F2E590 /* CoreMotion.framework */; };
+		D0D016171A5BA2E800F2E590 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D016161A5BA2E800F2E590 /* Social.framework */; };
+		D0D016191A5BA2F100F2E590 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D016181A5BA2F100F2E590 /* StoreKit.framework */; };
 		D0E5D8AA1A4C772B000CB229 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E5D8A91A4C772B000CB229 /* FacebookConnectPlugin.m */; };
 		D0E5D8AD1A4C7785000CB229 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E5D8AC1A4C7785000CB229 /* FacebookSDK.framework */; };
 		D0EB64EE1A14893E000E9ABC /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = D0EB64ED1A14893E000E9ABC /* config.xml */; };
@@ -1732,6 +1740,15 @@
 		D0AE030C1A43EAEF00CBACFB /* PayPalProfileSharingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayPalProfileSharingViewController.h; sourceTree = "<group>"; };
 		D0B56A521A46EB2700962E7B /* PayPalMobileCordovaPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalMobileCordovaPlugin.h; path = Netcastdigital/Plugins/com.paypal.cordova.mobilesdk/PayPalMobileCordovaPlugin.h; sourceTree = "<group>"; };
 		D0B56A531A46EB2700962E7B /* PayPalMobileCordovaPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PayPalMobileCordovaPlugin.m; path = Netcastdigital/Plugins/com.paypal.cordova.mobilesdk/PayPalMobileCordovaPlugin.m; sourceTree = "<group>"; };
+		D0D016071A5B9A6100F2E590 /* GoogleConnectPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoogleConnectPlugin.h; path = Netcastdigital/Plugins/com.cabot.plugins.googleplus/GoogleConnectPlugin.h; sourceTree = "<group>"; };
+		D0D016081A5B9A6100F2E590 /* GoogleConnectPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoogleConnectPlugin.m; path = Netcastdigital/Plugins/com.cabot.plugins.googleplus/GoogleConnectPlugin.m; sourceTree = "<group>"; };
+		D0D0160B1A5B9A9200F2E590 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleOpenSource.framework; path = Netcastdigital/Plugins/com.cabot.plugins.googleplus/GoogleOpenSource.framework; sourceTree = "<group>"; };
+		D0D0160C1A5B9A9200F2E590 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlus.bundle; path = Netcastdigital/Plugins/com.cabot.plugins.googleplus/GooglePlus.bundle; sourceTree = "<group>"; };
+		D0D0160D1A5B9A9200F2E590 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlus.framework; path = Netcastdigital/Plugins/com.cabot.plugins.googleplus/GooglePlus.framework; sourceTree = "<group>"; };
+		D0D016121A5BA2AB00F2E590 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		D0D016141A5BA2DE00F2E590 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		D0D016161A5BA2E800F2E590 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		D0D016181A5BA2F100F2E590 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D0E5D8A81A4C772B000CB229 /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookConnectPlugin.h; path = Netcastdigital/Plugins/com.phonegap.plugins.facebookconnect/FacebookConnectPlugin.h; sourceTree = "<group>"; };
 		D0E5D8A91A4C772B000CB229 /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookConnectPlugin.m; path = Netcastdigital/Plugins/com.phonegap.plugins.facebookconnect/FacebookConnectPlugin.m; sourceTree = "<group>"; };
 		D0E5D8AC1A4C7785000CB229 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -2521,10 +2538,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0D016191A5BA2F100F2E590 /* StoreKit.framework in Frameworks */,
+				D0D016171A5BA2E800F2E590 /* Social.framework in Frameworks */,
+				D0D016151A5BA2DE00F2E590 /* CoreMotion.framework in Frameworks */,
+				BD7690F80C6E4A619B994B72 /* CoreLocation.framework in Frameworks */,
+				22405EEE1600B4E400B92522 /* AssetsLibrary.framework in Frameworks */,
+				D0D016131A5BA2AB00F2E590 /* Accounts.framework in Frameworks */,
+				D0D0160E1A5B9A9200F2E590 /* GoogleOpenSource.framework in Frameworks */,
+				D0D0160F1A5B9A9200F2E590 /* GooglePlus.bundle in Frameworks */,
+				D0D016101A5B9A9200F2E590 /* GooglePlus.framework in Frameworks */,
 				D0E5D8AD1A4C7785000CB229 /* FacebookSDK.framework in Frameworks */,
 				2264B6D211200342002C2C53 /* SystemConfiguration.framework in Frameworks */,
 				D37DC7181594AF3400B2A5EB /* MessageUI.framework in Frameworks */,
-				BD7690F80C6E4A619B994B72 /* CoreLocation.framework in Frameworks */,
 				224567C2107B968500F10948 /* AVFoundation.framework in Frameworks */,
 				57B0E360173C010400A476B8 /* libpolarssl.a in Frameworks */,
 				F476004B147AAF2800FFF19B /* liblinphone.a in Frameworks */,
@@ -2540,7 +2565,6 @@
 				D30562161671DC4900C97967 /* libXMLRPC.a in Frameworks */,
 				22B5F03510CE6B2F00777D97 /* AddressBook.framework in Frameworks */,
 				22B5EFA310CE50BD00777D97 /* AddressBookUI.framework in Frameworks */,
-				22405EEE1600B4E400B92522 /* AssetsLibrary.framework in Frameworks */,
 				2274402F106F335E006EC466 /* AudioToolbox.framework in Frameworks */,
 				228697C411AC29B800E9E0CA /* CFNetwork.framework in Frameworks */,
 				2274401A106F31BD006EC466 /* CoreAudio.framework in Frameworks */,
@@ -2957,6 +2981,13 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0D016181A5BA2F100F2E590 /* StoreKit.framework */,
+				D0D016161A5BA2E800F2E590 /* Social.framework */,
+				D0D016141A5BA2DE00F2E590 /* CoreMotion.framework */,
+				D0D016121A5BA2AB00F2E590 /* Accounts.framework */,
+				D0D0160B1A5B9A9200F2E590 /* GoogleOpenSource.framework */,
+				D0D0160C1A5B9A9200F2E590 /* GooglePlus.bundle */,
+				D0D0160D1A5B9A9200F2E590 /* GooglePlus.framework */,
 				D0E5D8AC1A4C7785000CB229 /* FacebookSDK.framework */,
 				22509041196BD902007863F6 /* libopenh264.a */,
 				223CA7E416D9255800EF1BEC /* libantlr3c.a */,
@@ -3072,6 +3103,8 @@
 		D0EB66A21A1489A2000E9ABC /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				D0D016071A5B9A6100F2E590 /* GoogleConnectPlugin.h */,
+				D0D016081A5B9A6100F2E590 /* GoogleConnectPlugin.m */,
 				D0E5D8A81A4C772B000CB229 /* FacebookConnectPlugin.h */,
 				D0E5D8A91A4C772B000CB229 /* FacebookConnectPlugin.m */,
 				D0B56A521A46EB2700962E7B /* PayPalMobileCordovaPlugin.h */,
@@ -5344,6 +5377,7 @@
 				D3807FC115C28940005BE9BC /* DCRoundSwitchKnobLayer.m in Sources */,
 				D3807FC315C28940005BE9BC /* DCRoundSwitchOutlineLayer.m in Sources */,
 				D3807FC515C28940005BE9BC /* DCRoundSwitchToggleLayer.m in Sources */,
+				D0D016091A5B9A6100F2E590 /* GoogleConnectPlugin.m in Sources */,
 				D3807FE815C2894A005BE9BC /* IASKAppSettingsViewController.m in Sources */,
 				D3807FEA15C2894A005BE9BC /* IASKAppSettingsWebViewController.m in Sources */,
 				D3807FEC15C2894A005BE9BC /* IASKSpecifierValuesViewController.m in Sources */,
@@ -5873,11 +5907,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Netcastdigital/Plugins/com.cabot.plugins.googleplus",
+				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -5913,7 +5950,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = PrayerLine;
-				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
+				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s";
@@ -5930,8 +5967,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -5961,7 +5998,7 @@
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "PrayerLine-no-gpl-thirdparties";
-				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
+				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				SKIP_INSTALL = NO;
 				VALID_ARCHS = armv7s;
 			};
@@ -5973,8 +6010,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -6004,7 +6041,7 @@
 				ORDER_FILE = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "PrayerLine-no-gpl-thirdparties";
-				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
+				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				SKIP_INSTALL = NO;
 				VALID_ARCHS = armv7s;
 			};
@@ -6021,7 +6058,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -6036,7 +6073,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = PrayerLine;
-				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
+				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				SDKROOT = iphoneos;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6051,11 +6088,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
 				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Netcastdigital/Plugins/com.cabot.plugins.googleplus",
+				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
@@ -6089,7 +6129,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = PrayerLine;
-				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
+				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s";
@@ -6111,7 +6151,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -6126,7 +6166,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = PrayerLine;
-				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
+				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				SDKROOT = iphoneos;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -6147,8 +6187,8 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -6184,7 +6224,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
+				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -6203,8 +6243,8 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6233,7 +6273,7 @@
 					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
+				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = xctest;
@@ -6254,8 +6294,8 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6290,7 +6330,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
+				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -6309,8 +6349,8 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6338,7 +6378,7 @@
 					"$(PROJECT_DIR)/liblinphone-sdk/apple-darwin/lib/mediastreamer/plugins",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
+				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

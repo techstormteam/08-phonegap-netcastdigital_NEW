@@ -30,7 +30,11 @@
         <param name="onload" value="true" />
     </feature>
     <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin" />
-    
+    <feature name="GoogleConnectPlugin">
+        <param name="ios-package" value="GoogleConnectPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <plugin name="GoogleConnectPlugin" value="GoogleConnectPlugin" />
     <name>Netcastdigital</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

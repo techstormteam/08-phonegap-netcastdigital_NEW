@@ -43,6 +43,7 @@
         <script>
         	app.initialize();
         	function onSuccessConfUrl(url) {
+        		window.location.href = url;
         		navigator.app.loadUrl(url, { openExternal:true });
 				// This is just a wrapper for device.platform
 			    /*if (app.isAndroid()) {

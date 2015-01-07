@@ -367,7 +367,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = "/tmp/$(PROJECT_NAME).dst";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -381,7 +381,7 @@
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = Cordova;
-				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
+				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				PUBLIC_HEADERS_FOLDER_PATH = include/Cordova;
 				SKIP_INSTALL = YES;
 			};
@@ -392,7 +392,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mr Odunaiya (942P93SN8W)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Idera Inc (U9ZV3HH4BT)";
 				DSTROOT = "/tmp/$(PROJECT_NAME).dst";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -404,7 +404,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Cordova;
-				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
+				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				PUBLIC_HEADERS_FOLDER_PATH = include/Cordova;
 				SKIP_INSTALL = YES;
 			};
