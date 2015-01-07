@@ -45,7 +45,7 @@ function signUpPLUserFacebook(response) {
 }
 
 function onSuccessRegisterPLUserFacebook(response) {
-	//alert(JSON.stringify(response))
+	alert(JSON.stringify(response))
 }
 
 var apiTest = function () {
