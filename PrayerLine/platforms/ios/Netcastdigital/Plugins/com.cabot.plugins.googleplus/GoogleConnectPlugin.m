@@ -20,43 +20,46 @@
 @implementation GoogleConnectPlugin
 
 - (void) cordovaGooglePlusLogin:(CDVInvokedUrlCommand *)command {
-    callbackCmd=command;
-    
-    //Google Plus Methods
-    GPPSignIn *signIn = [GPPSignIn sharedInstance];
-    signIn.shouldFetchGooglePlusUser = YES;
-    //signIn.shouldFetchGoogleUserEmail = YES;  // Uncomment to get the user's email
-    
-    // You previously set kClientId in the "Initialize the Google+ client" step
-    signIn.clientID =[[NSBundle mainBundle] objectForInfoDictionaryKey:@"GPlusClientID"];
-    
-    //NSString *appVersion =[[NSBundle mainBundle] objectForInfoDictionaryKey:@"GPlusClientID";
-    
-    // Uncomment one of these two statements for the scope you chose in the previous step
-    signIn.scopes = @[ kGTLAuthScopePlusLogin ];  // "https://www.googleapis.com/auth/plus.login" scope
-    //signIn.scopes = @[ @"profile" ];            // "profile" scope
-    
-    // Optional: declare signIn.actions, see "app activities"
-    signIn.delegate = self;
-    [signIn authenticate];
+    [self.commandDelegate runInBackground:^{
+        callbackCmd=command;
+        
+        //Google Plus Methods
+        GPPSignIn *signIn = [GPPSignIn sharedInstance];
+        signIn.shouldFetchGooglePlusUser = YES;
+        //signIn.shouldFetchGoogleUserEmail = YES;  // Uncomment to get the user's email
+        
+        // You previously set kClientId in the "Initialize the Google+ client" step
+        signIn.clientID =[[NSBundle mainBundle] objectForInfoDictionaryKey:@"GPlusClientID"];
+        
+        //NSString *appVersion =[[NSBundle mainBundle] objectForInfoDictionaryKey:@"GPlusClientID";
+        
+        // Uncomment one of these two statements for the scope you chose in the previous step
+        signIn.scopes = @[ kGTLAuthScopePlusLogin ];  // "https://www.googleapis.com/auth/plus.login" scope
+        //signIn.scopes = @[ @"profile" ];            // "profile" scope
+        
+        // Optional: declare signIn.actions, see "app activities"
+        signIn.delegate = self;
+        [signIn authenticate];
+    }];
 }
 
 - (void) cordovaGooglePlusLogout:(CDVInvokedUrlCommand *)command {
-    callbackCmd=command;
-    
- [[GPPSignIn sharedInstance] signOut];
- [[GPPSignIn sharedInstance] disconnect];
- CDVPluginResult *pluginResult = [ CDVPluginResult resultWithStatus    : CDVCommandStatus_OK];
-     [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackCmd.callbackId];
- 
+    [self.commandDelegate runInBackground:^{
+        callbackCmd=command;
+        
+        [[GPPSignIn sharedInstance] signOut];
+        [[GPPSignIn sharedInstance] disconnect];
+        CDVPluginResult *pluginResult = [ CDVPluginResult resultWithStatus    : CDVCommandStatus_OK];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackCmd.callbackId];
+    }];
 }
 #pragma mark - Social Media Callback Methods
 //Google Plus callback method
 
 -(void)finishedWithAuth:(GTMOAuth2Authentication *)auth error:(NSError *)error {
-
+    
     GPPSignIn *signIn = [GPPSignIn sharedInstance];
-
+    
     if (signIn.authentication) {
         NSLog(@"Login Status: Authenticated");
         //NSLog(@"Name:%@, ProfilePic:%@, Email:%@ About me:%@, UserID:%@",person.displayName,person.image.url,[GPPSignIn sharedInstance].authentication.userEmail,person.aboutMe,person.identifier);
@@ -84,10 +87,10 @@
              }
              
          }];
-
-
         
-       
+        
+        
+        
         
     } else {
         // To authenticate, use Google+ sign-in button.
@@ -113,7 +116,7 @@
     [personDict setValue:person.gender forKey:@"gender"];
     
     return personDict;
-
+    
 }
 
 @end
