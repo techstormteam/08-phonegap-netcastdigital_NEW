@@ -209,7 +209,7 @@ public class LinPhonePlugin extends CordovaPlugin {
 		}
 	}
 	
-	private void dialDtmf(char keyCode) {
+	public static void dialDtmf(char keyCode) {
 		LinphoneCore lc = LinphoneManager.getLc();
 		lc.stopDtmf();
 		if (lc.isIncall()) {
