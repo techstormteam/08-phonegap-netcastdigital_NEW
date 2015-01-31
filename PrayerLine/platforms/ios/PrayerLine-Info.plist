@@ -39,6 +39,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>com.iderainc.prayerline</string>
 				<string>fb387577554752345</string>
 			</array>
 		</dict>

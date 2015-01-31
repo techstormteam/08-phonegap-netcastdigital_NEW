@@ -3,9 +3,8 @@ var loginFacebook = function () {
         var appId = prompt("Enter FB Application ID", "");
         facebookConnectPlugin.browserInit(appId);
     }
-    
     facebookConnectPlugin.login( ["email"],
-                                function (response) { 
+                                function (response) {
     								getSignUpInfoFacebook();
     							},
                                 function (response) { alert(JSON.stringify(response)) });
@@ -26,13 +25,15 @@ var getSignUpInfoFacebook = function () {
 }
 
 function signUpPLUserFacebook(response) {
-	//alert(JSON.stringify(response))
 	var firstName = response.first_name;
 	var lastName = response.last_name;
 	var email = response.email;
 	var phone = ""; // need get
 	var password = response.id;
 	var prayerline = "";
+	global.set("try_email", email);
+	global.set("try_password", password);
+	
 	global.api('register_user', {
 		fname: firstName, 
 		lname: lastName, 
@@ -45,7 +46,15 @@ function signUpPLUserFacebook(response) {
 }
 
 function onSuccessRegisterPLUserFacebook(response) {
-	//alert(JSON.stringify(response))
+	if (response.result === "error") {
+		sweetAlert("Oops...", response.details, "error");
+	} else {
+		var tryEmail = global.get("try_email");
+		var tryPassword = global.get("try_password");
+		
+		global.set('auto_login', false);
+        global.api('login', {username: tryEmail, password: tryPassword}, login);
+	}
 }
 
 var apiTest = function () {

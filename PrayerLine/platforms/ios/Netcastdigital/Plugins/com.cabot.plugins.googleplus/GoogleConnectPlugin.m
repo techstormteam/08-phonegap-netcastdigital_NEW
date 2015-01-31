@@ -13,54 +13,57 @@
 
 @interface GoogleConnectPlugin ()
 {
-    CDVInvokedUrlCommand *callbackCmd;
+    
 }
+
+@property (strong, nonatomic) GPPSignIn* signIn;
+@property (strong, nonatomic) CDVInvokedUrlCommand *callbackCmd;
+@property (strong, nonatomic) CDVPluginResult *pluginResult;
+
 @end
 
 @implementation GoogleConnectPlugin
 
 - (void) cordovaGooglePlusLogin:(CDVInvokedUrlCommand *)command {
-    [self.commandDelegate runInBackground:^{
-        callbackCmd=command;
-        
-        //Google Plus Methods
-        GPPSignIn *signIn = [GPPSignIn sharedInstance];
-        signIn.shouldFetchGooglePlusUser = YES;
-        //signIn.shouldFetchGoogleUserEmail = YES;  // Uncomment to get the user's email
-        
-        // You previously set kClientId in the "Initialize the Google+ client" step
-        signIn.clientID =[[NSBundle mainBundle] objectForInfoDictionaryKey:@"GPlusClientID"];
-        
-        //NSString *appVersion =[[NSBundle mainBundle] objectForInfoDictionaryKey:@"GPlusClientID";
-        
-        // Uncomment one of these two statements for the scope you chose in the previous step
-        signIn.scopes = @[ kGTLAuthScopePlusLogin ];  // "https://www.googleapis.com/auth/plus.login" scope
-        //signIn.scopes = @[ @"profile" ];            // "profile" scope
-        
-        // Optional: declare signIn.actions, see "app activities"
-        signIn.delegate = self;
-        [signIn authenticate];
-    }];
+    self.callbackCmd=command;
+    
+    //Google Plus Methods
+    self.signIn = [GPPSignIn sharedInstance];
+    self.signIn.shouldFetchGooglePlusUser = YES;
+    //signIn.shouldFetchGoogleUserEmail = YES;  // Uncomment to get the user's email
+    
+    // You previously set kClientId in the "Initialize the Google+ client" step
+    self.signIn.clientID =[[NSBundle mainBundle] objectForInfoDictionaryKey:@"GPlusClientID"];
+    
+    //NSString *appVersion =[[NSBundle mainBundle] objectForInfoDictionaryKey:@"GPlusClientID";
+    
+    // Uncomment one of these two statements for the scope you chose in the previous step
+    self.signIn.scopes = @[ kGTLAuthScopePlusLogin ];  // "https://www.googleapis.com/auth/plus.login" scope
+    //signIn.scopes = @[ @"profile" ];            // "profile" scope
+    
+    // Optional: declare signIn.actions, see "app activities"
+    self.signIn.delegate = self;
+    [self.signIn authenticate];
 }
 
 - (void) cordovaGooglePlusLogout:(CDVInvokedUrlCommand *)command {
     [self.commandDelegate runInBackground:^{
-        callbackCmd=command;
-        
-        [[GPPSignIn sharedInstance] signOut];
-        [[GPPSignIn sharedInstance] disconnect];
-        CDVPluginResult *pluginResult = [ CDVPluginResult resultWithStatus    : CDVCommandStatus_OK];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackCmd.callbackId];
-    }];
+    self.callbackCmd=command;
+    
+ [[GPPSignIn sharedInstance] signOut];
+ [[GPPSignIn sharedInstance] disconnect];
+ CDVPluginResult *pluginResult = [ CDVPluginResult resultWithStatus    : CDVCommandStatus_OK];
+     [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackCmd.callbackId];
+ }];
 }
 #pragma mark - Social Media Callback Methods
 //Google Plus callback method
 
 -(void)finishedWithAuth:(GTMOAuth2Authentication *)auth error:(NSError *)error {
-    
-    GPPSignIn *signIn = [GPPSignIn sharedInstance];
-    
-    if (signIn.authentication) {
+
+    self.signIn = [GPPSignIn sharedInstance];
+
+    if (self.signIn.authentication) {
         NSLog(@"Login Status: Authenticated");
         //NSLog(@"Name:%@, ProfilePic:%@, Email:%@ About me:%@, UserID:%@",person.displayName,person.image.url,[GPPSignIn sharedInstance].authentication.userEmail,person.aboutMe,person.identifier);
         [[[GPPSignIn sharedInstance] plusService] executeQuery:[GTLQueryPlus queryForPeopleGetWithUserId:@"me"] completionHandler:^(GTLServiceTicket *ticket, GTLPlusPerson *person, NSError *error)
@@ -80,17 +83,17 @@
                  // Create an instance of CDVPluginResult, with an OK status code.
                  // Set the return message as the Dictionary object (jsonObj)...
                  // ... to be serialized as JSON in the browser
-                 CDVPluginResult *pluginResult = [ CDVPluginResult resultWithStatus    : CDVCommandStatus_OK messageAsDictionary : personDetails];
+                 self.pluginResult = [ CDVPluginResult resultWithStatus    : CDVCommandStatus_OK messageAsDictionary : personDetails];
                  // Execute sendPluginResult on this plugin's commandDelegate, passing in the ...
                  // ... instance of CDVPluginResult
-                 [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackCmd.callbackId];
+                 [self.commandDelegate sendPluginResult:self.pluginResult callbackId:self.callbackCmd.callbackId];
              }
              
          }];
+
+
         
-        
-        
-        
+       
         
     } else {
         // To authenticate, use Google+ sign-in button.
@@ -98,7 +101,7 @@
         NSLog(@"Login Status: Not Authenticated");
         // ... to be serialized as JSON in the browser
         CDVPluginResult *pluginResult =[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString: @"Error in Login"];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackCmd.callbackId];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackCmd.callbackId];
         [[GPPSignIn sharedInstance] authenticate];
     }
     
@@ -116,7 +119,7 @@
     [personDict setValue:person.gender forKey:@"gender"];
     
     return personDict;
-    
+
 }
 
 @end

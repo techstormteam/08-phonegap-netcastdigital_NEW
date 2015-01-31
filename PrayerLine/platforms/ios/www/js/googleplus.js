@@ -33,6 +33,9 @@ function signUpPLUserGooglePlus(response) {
 	var phone = ""; // need get
 	var password = response.Id;
 	var prayerline = "";
+	global.set("try_email", email);
+	global.set("try_password", password);
+	
 	global.api('register_user', {
 		fname: firstName, 
 		lname: lastName, 
@@ -45,5 +48,13 @@ function signUpPLUserGooglePlus(response) {
 }
 
 function onSuccessRegisterPLUserGooglePlus(response) {
-	//alert(JSON.stringify(response))
+	if (response.result === "error") {
+		sweetAlert("Oops...", response.details, "error");
+	} else {
+		var tryEmail = global.get("try_email");
+		var tryPassword = global.get("try_password");
+		
+		global.set('auto_login', false);
+        global.api('login', {username: tryEmail, password: tryPassword}, login);
+	}
 }

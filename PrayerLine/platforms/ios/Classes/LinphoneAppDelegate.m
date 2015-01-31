@@ -17,6 +17,9 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */                                                                           
 
+#import <FacebookSDK/FacebookSDK.h>
+#import <GooglePlus/GooglePlus.h>
+
 #import "PhoneMainView.h"
 #import "linphoneAppDelegate.h"
 #import "AddressBook/ABPerson.h"
@@ -254,6 +257,21 @@
     }
 	return YES;
 }
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    NSLog(@"%@", [url scheme]);
+    
+    if ([[url scheme] rangeOfString:@"fb"].location != NSNotFound)
+    {
+        return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    }
+    else
+    {
+        return [GPPURLHandler handleURL:url sourceApplication:sourceApplication annotation:annotation];
+    }
+}
+
 
 - (void)fixRing{
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
