@@ -74,6 +74,20 @@
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
         </receiver>
+        <receiver android:name="com.iderainc.prayerline.NotificationBroadcast" >
+            <intent-filter>
+                <action android:name="com.tutorialsface.audioplayer.delete" />
+                <action android:name="com.tutorialsface.audioplayer.pause" />
+                <action android:name="com.tutorialsface.audioplayer.next" />
+                <action android:name="com.tutorialsface.audioplayer.play" />
+                <action android:name="com.tutorialsface.audioplayer.kill" />
+                <action android:name="com.tutorialsface.audioplayer.back" />
+                <action android:name="com.tutorialsface.audioplayer.previous" />
+                <action android:name="com.tutorialsface.audioplayer.create" />
+                <action android:name="com.tutorialsface.audioplayer.return" />
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
         <receiver android:name="KeepAliveHandler" />
         <receiver android:name="org.linphone.gcm.GCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
