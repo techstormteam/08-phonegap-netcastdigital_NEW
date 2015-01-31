@@ -1,11 +1,3 @@
-//
-//  GooglePlusLoginPlugin.h
-//  AsthmaApp
-//
-//  Created by tessy on 01/08/14.
-//
-//
-
 #import <GooglePlus/GooglePlus.h>
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import "Cordova/CDVViewController.h"

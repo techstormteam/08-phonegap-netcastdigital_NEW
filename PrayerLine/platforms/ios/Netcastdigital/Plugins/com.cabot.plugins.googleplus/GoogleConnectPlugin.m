@@ -48,21 +48,21 @@
 
 - (void) cordovaGooglePlusLogout:(CDVInvokedUrlCommand *)command {
     [self.commandDelegate runInBackground:^{
-    self.callbackCmd=command;
-    
- [[GPPSignIn sharedInstance] signOut];
- [[GPPSignIn sharedInstance] disconnect];
- CDVPluginResult *pluginResult = [ CDVPluginResult resultWithStatus    : CDVCommandStatus_OK];
-     [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackCmd.callbackId];
- }];
+        self.callbackCmd=command;
+        
+        [[GPPSignIn sharedInstance] signOut];
+        [[GPPSignIn sharedInstance] disconnect];
+        CDVPluginResult *pluginResult = [ CDVPluginResult resultWithStatus    : CDVCommandStatus_OK];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:self.callbackCmd.callbackId];
+    }];
 }
 #pragma mark - Social Media Callback Methods
 //Google Plus callback method
 
 -(void)finishedWithAuth:(GTMOAuth2Authentication *)auth error:(NSError *)error {
-
+    
     self.signIn = [GPPSignIn sharedInstance];
-
+    
     if (self.signIn.authentication) {
         NSLog(@"Login Status: Authenticated");
         //NSLog(@"Name:%@, ProfilePic:%@, Email:%@ About me:%@, UserID:%@",person.displayName,person.image.url,[GPPSignIn sharedInstance].authentication.userEmail,person.aboutMe,person.identifier);
@@ -90,10 +90,10 @@
              }
              
          }];
-
-
         
-       
+        
+        
+        
         
     } else {
         // To authenticate, use Google+ sign-in button.
@@ -119,7 +119,7 @@
     [personDict setValue:person.gender forKey:@"gender"];
     
     return personDict;
-
+    
 }
 
 @end
