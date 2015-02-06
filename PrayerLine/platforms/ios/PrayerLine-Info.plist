@@ -33,7 +33,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.44</string>
+	<string>1.0.45</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -81,11 +81,13 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0.44</string>
+	<string>1.0.45</string>
 	<key>FacebookAppID</key>
 	<string>387577554752345</string>
 	<key>FacebookDisplayName</key>
 	<string>PrayerLine</string>
+	<key>GPlusClientID</key>
+	<string>581179436125-ptnigmg91lol2e5kqi7o6eai430777b5.apps.googleusercontent.com</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationExitsOnSuspend</key>
@@ -125,7 +127,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>GPlusClientID</key>
-	<string>581179436125-ptnigmg91lol2e5kqi7o6eai430777b5.apps.googleusercontent.com</string>
 </dict>
 </plist>

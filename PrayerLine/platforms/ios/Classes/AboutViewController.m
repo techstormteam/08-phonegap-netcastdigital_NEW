@@ -22,7 +22,7 @@
 #import "LinphoneManager.h"
 #include "linphone/lpconfig.h"
 
-@implementation AboutViewController
+@implementation AboutViewController 
 
 @synthesize linphoneCoreVersionLabel;
 @synthesize linphoneLabel;
