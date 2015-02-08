@@ -384,6 +384,7 @@
 				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				PUBLIC_HEADERS_FOLDER_PATH = include/Cordova;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
 		};
@@ -407,6 +408,7 @@
 				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				PUBLIC_HEADERS_FOLDER_PATH = include/Cordova;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
 		};
@@ -439,6 +441,7 @@
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(OBJROOT)/UninstalledProducts/include";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
 		};
@@ -469,6 +472,7 @@
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(OBJROOT)/UninstalledProducts/include";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
 		};

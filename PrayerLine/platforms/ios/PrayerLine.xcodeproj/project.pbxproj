@@ -5904,6 +5904,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -5953,7 +5954,7 @@
 				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64 armv7";
 				WARNING_CFLAGS = (
 					"-Werror=objc-method-access",
 					"-Werror=incomplete-implementation",
@@ -6000,7 +6001,7 @@
 				PRODUCT_NAME = "PrayerLine-no-gpl-thirdparties";
 				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				SKIP_INSTALL = NO;
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
 		};
@@ -6043,7 +6044,7 @@
 				PRODUCT_NAME = "PrayerLine-no-gpl-thirdparties";
 				PROVISIONING_PROFILE = "322ff548-6525-498f-bbb4-9cf910f581b0";
 				SKIP_INSTALL = NO;
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
 		};
@@ -6078,6 +6079,7 @@
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(OBJROOT)/UninstalledProducts/include";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
 		};
@@ -6085,6 +6087,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -6132,7 +6135,7 @@
 				PROVISIONING_PROFILE = "dd024ffd-8319-4211-84de-29b20f39b062";
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = "arm64 armv7";
 				WARNING_CFLAGS = (
 					"-Werror=objc-method-access",
 					"-Werror=incomplete-implementation",
@@ -6171,6 +6174,7 @@
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(OBJROOT)/UninstalledProducts/include";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
 		};
