@@ -9,6 +9,7 @@ import org.apache.cordova.PluginResult;
 import org.apache.cordova.PluginResult.Status;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.linphone.core.LinphoneAddress.TransportType;
 import org.linphone.core.LinphoneCall;
 import org.linphone.core.LinphoneCore;
@@ -18,7 +19,6 @@ import org.linphone.core.LinphoneProxyConfig;
 
 import android.appwidget.AppWidgetManager;
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -48,20 +48,27 @@ public class LinPhonePlugin extends CordovaPlugin {
 	ViewGroup container;
 	Bundle savedInstanceState;
 	public static String message;
+	public static String compare;
+	public static String callTo;
 	private BroadcastReceiver mReceiver;
 	public static String user;
-	public static String Domain;
+	public static String domain;
 	@Override
 	public boolean execute(String action, JSONArray args,
 			CallbackContext callbackContext) throws JSONException {
 		if (action.equals("callSip")) {
-			String callTo = (String) args.get(0);
+			 callTo = (String) args.get(0);
 			message = callTo;
+			compare = callTo;
 			String sipUsername = (String) args.get(1);
 			String password = (String) args.get(2);
 			String domain = Netcastdigital.SIP_DOMAIN;
+			
 			registerSip(sipUsername, password, domain);
 			sip(String.format("sip:%s@%s", callTo, Netcastdigital.SIP_DOMAIN));
+			LinPhonePlugin.user = sipUsername;
+			LinPhonePlugin.domain = domain;
+			
 			deleteNotification();
 			creatNotification();
 			LinphoneManager.getInstance().routeAudioToSpeaker();
@@ -81,7 +88,7 @@ public class LinPhonePlugin extends CordovaPlugin {
 			String password = (String) args.get(1);
 			String domain = Netcastdigital.SIP_DOMAIN;
 			user = sipUsername;
-			Domain = domain;
+			domain = domain;
 			// registerSip(sipUsername, password, domain);
 			PluginResult result = new PluginResult(Status.OK);
 			callbackContext.sendPluginResult(result);
@@ -113,6 +120,44 @@ public class LinPhonePlugin extends CordovaPlugin {
 			signOut(sipUsername, domain);
 			callbackContext.success("Sign out successful.");
 			return true;
+			
+		} else if (action.equals("isPlaying")) {
+		String	messageID = (String) args.get(0);
+		String s = message;
+		if (LinPhonePlugin.message.equals(messageID)) {
+				JSONObject objJSON = new JSONObject();
+				boolean playing = false;
+				if (user != null && domain != null) {
+					playing = true;
+				}
+				
+				
+				objJSON.put("playing", playing);
+				PluginResult result = new PluginResult(Status.OK,
+						objJSON);
+				callbackContext.sendPluginResult(result);
+				return true;
+			}
+			
+			
+		} else if (action.equals("duration")) {
+			String	messageID = (String) args.get(0);
+
+			if (LinPhonePlugin.message.equals(messageID)) {
+			JSONObject objJSON = new JSONObject();
+				boolean playing = false;
+				if (user != null && domain != null) {
+					playing = true;
+				}
+				LinphoneCore lc = LinphoneManager.getLc();
+				LinphoneCall currentCall = lc.getCurrentCall();
+				
+				objJSON.put("duration", currentCall.getDuration() );
+				PluginResult result = new PluginResult(Status.OK,
+						objJSON);
+				callbackContext.sendPluginResult(result);
+				return true;
+			}
 			
 		}
 		return false;
@@ -311,6 +356,8 @@ public class LinPhonePlugin extends CordovaPlugin {
 			lc.refreshRegisters();
 
 		}
+		user = null;
+		domain = null;
 	}
 
 	public static void dialDtmf(char keyCode) {

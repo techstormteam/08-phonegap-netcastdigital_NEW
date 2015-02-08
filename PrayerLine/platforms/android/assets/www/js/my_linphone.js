@@ -45,3 +45,15 @@ window.deregisterSip = function(sipUsername, registerStatus, callback) {
         callback(err);
     }, "LinPhonePlugin", "deregisterSip", [sipUsername, registerStatus]);
 };
+
+
+window.isPlaying = function(messageID, callback) {
+    cordova.exec(callback, function(err) {
+        callback(err);
+    }, "LinPhonePlugin", "isPlaying", [messageID]);
+};
+window.duration = function(messageID, callback) {
+    cordova.exec(callback, function(err) {
+        callback(err);
+    }, "LinPhonePlugin", "duration", [messageID]);
+};

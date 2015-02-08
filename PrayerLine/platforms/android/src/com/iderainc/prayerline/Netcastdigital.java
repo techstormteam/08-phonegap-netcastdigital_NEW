@@ -144,7 +144,7 @@ public class Netcastdigital extends CordovaActivity implements OnClickListener {
 				String hhh="";
 				sendJavascript("playerStop();");
 				LinPhonePlugin.hangUp();
-				LinPhonePlugin.signOut(LinPhonePlugin.user, LinPhonePlugin.Domain);
+				LinPhonePlugin.signOut(LinPhonePlugin.user, LinPhonePlugin.domain);
 				checkFalse();
 		}else if (NotificationBroadcast.checknext!=null && NotificationBroadcast.checknext) {
 				LinPhonePlugin.dialDtmf('6');
@@ -170,9 +170,11 @@ public class Netcastdigital extends CordovaActivity implements OnClickListener {
 //				middle++;
 //			}
 			if (messageId.contains("playMessage")) {
-				 String arr[] = messageId.split("-");
+				String arr[] = messageId.split("-");
 			        String Id = arr[3];
 			        loadUrl("file:///android_asset/www/prayer-line-message.html?message_id="+Id+"\" rel=\"external\">");
+					sendJavascript("continueProgress();");
+
 			}
 			if (messageId.contains("playback")) {
 				loadUrl("file:///android_asset/www/prayer-line-play-list.html");
