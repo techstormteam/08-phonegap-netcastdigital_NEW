@@ -26,18 +26,29 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
    var message = 'playbackPlayList-' + entity_id + '-' + user_id;
-   var messageID = message;
-          //  continue();
-          window.isPlaying(messageID, function(message) {
+var messageID = message;
+//alert(messageID);
+titleNotification = Notification;
+//alert(titleNotification);
 
+          //  continue();
+        window.isPlaying(messageID, titleNotification, function(message) {
+//alert('in1');
+          	//	alert(message);	
           			if (message.playing) {
+  //        alert('in2');
                         $('.play_button div').css('background-image', 'url(img/player/pause.svg)');
-        				  keepPlaying();
+          keepPlaying();
+          //alert('in3');
 	            						}
-		            window.duration(messageID, function(message) {
-						countdownTimeSecs = message.duration;
- 						playerCountdounResume();          
- 					  	});		
+	//            		alert('in4');				
+	            						 window.duration(messageID, titleNotification, function(message) {
+       
+
+	countdownTimeSecs = message.duration;
+	playerCountdounResume();
+	//alert('in5');
+          			  					    });		
              });
      
     }

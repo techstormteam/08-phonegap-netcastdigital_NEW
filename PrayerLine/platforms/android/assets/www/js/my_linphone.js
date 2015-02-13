@@ -47,13 +47,13 @@ window.deregisterSip = function(sipUsername, registerStatus, callback) {
 };
 
 
-window.isPlaying = function(messageID, callback) {
+window.isPlaying = function(messageID, titleNotification, callback) {
     cordova.exec(callback, function(err) {
         callback(err);
-    }, "LinPhonePlugin", "isPlaying", [messageID]);
+    }, "LinPhonePlugin", "isPlaying", [messageID, titleNotification]);
 };
-window.duration = function(messageID, callback) {
+window.duration = function(messageID, titleNotification, callback) {
     cordova.exec(callback, function(err) {
         callback(err);
-    }, "LinPhonePlugin", "duration", [messageID]);
+    }, "LinPhonePlugin", "duration", [messageID, titleNotification]);
 };

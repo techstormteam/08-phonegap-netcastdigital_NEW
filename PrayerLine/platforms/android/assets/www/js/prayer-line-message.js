@@ -25,20 +25,30 @@ var app = {
     
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-	var currentMessageToken = currentMessage["entity_id"] + '-' + user_id + '-' + currentMessage["msg_id"];
-    var message = 'playMessage-' + currentMessageToken;
-    var messageID = message;
+    var currentMessageToken = currentMessage["entity_id"] + '-' + user_id + '-' + currentMessage["msg_id"];
+                    var message = 'playMessage-' + currentMessageToken;
+var messageID = message;
+//alert(messageID);
+var id = titleNotification;
+//alert(id);
           //  continue();
-          window.isPlaying(messageID, function(message) {
-        	  	
+          window.isPlaying(messageID, titleNotification, function(message) {
+//alert('in1');
+          			
           			if (message.playing) {
+         // alert('in2');
                         $('.play_button div').css('background-image', 'url(img/player/pause.svg)');
-        				  keepPlaying();
+          keepPlaying();
+          //alert('in3');
 	            						}
-		            window.duration(messageID, function(message) {
-						countdownTimeSecs = message.duration;
- 						playerCountdounResume();          
- 					  	});		
+	        //    		alert('in4');				
+	            						 window.duration(messageID, titleNotification, function(message) {
+       
+
+	countdownTimeSecs = message.duration;
+	playerCountdounResume();
+	//alert('in5');
+          			  					    });		
              });
      
     }

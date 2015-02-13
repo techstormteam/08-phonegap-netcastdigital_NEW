@@ -16,9 +16,8 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/my_linphone.js"></script>
-                <script type="text/javascript" src="js/prayer-line-playlist.js"></script>
-        
-                <script type="text/javascript" src="js/prayer-list-message.js"></script>
+        <script type="text/javascript" src="js/prayer-line-playlist.js"></script>
+        <script type="text/javascript" src="js/prayer-list-message.js"></script>
         <link rel="stylesheet" href="js/jquery-mobile-datebox/jqm-datebox.min.css" />
         <script src="js/jquery-mobile-datebox/jqm-datebox.core.min.js"></script>
         <script src="js/jquery-mobile-datebox/jqm-datebox.mode.calbox.min.js"></script>
@@ -225,7 +224,7 @@
                         <!--
                         <div data-role="controlgroup" data-type="horizontal" style="text-align: center;">
                             <a href="#" data-role="button" onclick="playerBackward();">Back</a>
-                            <a href="#" data-role="button" onclick="playerPause();">Pause</a>
+                            <a href="#" data-role="button" onclick="playerPlay();">Pause</a>
                             <a href="#" data-role="button" onclick="playerForward();">Forward</a>
                         </div>
                         -->
@@ -297,10 +296,13 @@
         </script>
         <script>
             var user = global.getUser();
+            var Notification = 'My Playlist';
+            var playerStatus = 'stopped';
+            
             var user_id = user.getId();
             var entity_id = 0; // To be dynamicly recalculated
             var playlistTotalSeconds = 0; // To be dynamicly recalculated
-
+			var same = '';
 			$('.play_button').bind('taphold', function() {
 				playerStop();
 			});
@@ -416,7 +418,7 @@
                     console.log(ui)
                     console.log(ui.originalPosition.top)
                     var messageId = ui.item.closest('li').data('id');
-
+				//	alert(messageId);
                     if (ui.originalPosition.top - ui.position.top > 0) {
                         console.log('up');
                         var nextId = ui.item.closest('li').next().data('id');
@@ -595,6 +597,7 @@
             /**
              function playPlaylist(button) {
              var message = 'playbackPlayList-' + entity_id + '-' + user_id;
+            	
              if (typeof session !== 'undefined') {
              session.bye();
              }
@@ -630,21 +633,7 @@
         <script>
             function playerPause() {
                 window.pauseSip('empty', function(message) {
-                    var img = $('.play_button div').css('background-image');
-                    var state = '';
-                    if (img.indexOf('play.svg') !== -1) {
-                    
-                        //playerCountdounStop();
-                        //console.log('Pause');
-                        $('.play_button div').css('background-image', 'url(img/player/pause.svg)');
-                        playerStatus = 'playing';
-                    }
-                    if (img.indexOf('pause.svg') !== -1) {
-                        //playerCountdounResume();
-                        //console.log('Resume');
-                        $('.play_button div').css('background-image', 'url(img/player/play.svg)');
-                        playerStatus = 'paused';
-                    }
+                   
                 });
             }
  			function playerCountdounResume() {
@@ -671,20 +660,46 @@
 
             function playerPlay() {
                 if (playerStatus === 'stopped') {
+              //  alert(1);
                     var message = 'playbackPlayList-' + entity_id + '-' + user_id;
+                  //  alert(titleNotification);
+               //   	same = message;
+                  //	alert(message);
+                  //	alert(same);
+                  //	alert(message);
                     var user = global.getUser();
                     var sipUsername = global.get('telno');
+                //    alert(sipUsername);
                     var password = user.data.uipass;
+                  // alert(password);
+                    //alert(2);
                     window.callSip(message, sipUsername, password, function(message) {
 	                    //var message = 'playMessage-' + currentMessage;
 	                    //session = userAgent.invite(message, options);
+	                // alert(3);
 	                    playerCountdoundStart();
 	                    $('.play_button div').css('background-image', 'url(img/player/pause.svg)');
 	                    playerStatus = 'playing';
+	                  //                  alert('pass');
+	                    
 	                });
                 } else {
                     // Pause and Resume  
-                    playerPause(); // Pause / resume
+                     var img = $('.play_button div').css('background-image');
+                    var state = '';
+                    if (img.indexOf('play.svg') !== -1) {
+                        //playerCountdounStop();
+                        //console.log('Pause');
+                        $('.play_button div').css('background-image', 'url(img/player/pause.svg)');
+                        playerStatus = 'playing';
+                    }
+                    if (img.indexOf('pause.svg') !== -1) {
+                        //playerCountdounResume();
+                        //console.log('Resume');
+                        $('.play_button div').css('background-image', 'url(img/player/play.svg)');
+                        playerStatus = 'paused';
+                    }
+                    playerPause(); // Pause / resume(); // Pause / resume
                 }
             }
 
@@ -711,7 +726,6 @@
                 }
             }
 
-            var playerStatus = 'stopped';
             var countdownInterval = null;
             var countdownTimeSecs = 0;
             function playerCountdoundStart() {

@@ -1,0 +1,3 @@
+function continue(){
+alert('continue');
+}

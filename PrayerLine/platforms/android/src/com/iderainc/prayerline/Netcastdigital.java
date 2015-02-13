@@ -54,7 +54,7 @@ public class Netcastdigital extends CordovaActivity implements OnClickListener {
 	ViewGroup container;
 	Bundle savedInstanceState;
 	Intent intent;
-
+	public static String re;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -124,8 +124,10 @@ public class Netcastdigital extends CordovaActivity implements OnClickListener {
 			mThread = null;
 		}
 	}
+	
 	public void checkFalse()
 	{
+		
 		NotificationBroadcast.checkBack = false;
 		NotificationBroadcast.checkpause = false;
 		NotificationBroadcast.checkplay = false;
@@ -138,7 +140,7 @@ public class Netcastdigital extends CordovaActivity implements OnClickListener {
 	@Override
 	protected void onResume() {
 		super.onResume();
-	
+
 		
 		if (NotificationBroadcast.checkExit!=null && NotificationBroadcast.checkExit) {
 				String hhh="";
@@ -178,6 +180,8 @@ public class Netcastdigital extends CordovaActivity implements OnClickListener {
 			}
 			if (messageId.contains("playback")) {
 				loadUrl("file:///android_asset/www/prayer-line-play-list.html");
+				sendJavascript("continueProgress();");
+
 			}
 //	        String arr[] = messageId.split("-");
 //	        String Id = arr[3];

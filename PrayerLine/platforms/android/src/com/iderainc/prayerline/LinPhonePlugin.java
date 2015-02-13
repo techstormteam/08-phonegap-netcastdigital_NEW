@@ -53,37 +53,61 @@ public class LinPhonePlugin extends CordovaPlugin {
 	private BroadcastReceiver mReceiver;
 	public static String user;
 	public static String domain;
+	public static String titleNotification;
 	@Override
-	public boolean execute(String action, JSONArray args,
-			CallbackContext callbackContext) throws JSONException {
+	public boolean execute(String action, final JSONArray args,
+			final CallbackContext callbackContext) throws JSONException {
 		if (action.equals("callSip")) {
-			 callTo = (String) args.get(0);
-			message = callTo;
-			compare = callTo;
-			String sipUsername = (String) args.get(1);
-			String password = (String) args.get(2);
-			String domain = Netcastdigital.SIP_DOMAIN;
-			
-			registerSip(sipUsername, password, domain);
-			sip(String.format("sip:%s@%s", callTo, Netcastdigital.SIP_DOMAIN));
-			LinPhonePlugin.user = sipUsername;
-			LinPhonePlugin.domain = domain;
-			
-			deleteNotification();
-			creatNotification();
-			LinphoneManager.getInstance().routeAudioToSpeaker();
-			LinphoneManager.getLc().enableSpeaker(true);
-			callbackContext.success("call sip");
+			this.cordova.getActivity().runOnUiThread(new Runnable() {
+				public void run() {
+					try {
+						callTo = (String) args.get(0);
+
+						message = callTo;
+						compare = callTo;
+						String sipUsername = (String) args.get(1);
+						String password = (String) args.get(2);
+						String domain = Netcastdigital.SIP_DOMAIN;
+
+						registerSip(sipUsername, password, domain);
+						sip(String.format("sip:%s@%s", callTo,
+								Netcastdigital.SIP_DOMAIN));
+						LinPhonePlugin.user = sipUsername;
+						LinPhonePlugin.domain = domain;
+
+						deleteNotification();
+						// creatNotification();
+						LinphoneManager.getInstance().routeAudioToSpeaker();
+						LinphoneManager.getLc().enableSpeaker(true);
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					callbackContext.success("call sip");
+				}
+			});
 			return true;
 		} else if (action.equals("cancelSip")) {
+			this.cordova.getActivity().runOnUiThread(new Runnable() {
+				public void run() {
+					try {
 			String sipUsername = (String) args.get(0);
 			String domain = Netcastdigital.SIP_DOMAIN;
-//		
+			//
 			hangUp();
 			signOut(sipUsername, domain);
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
 			callbackContext.success("cancel sip");
+				
+				}
+			});
 			return true;
 		} else if (action.equals("registerSip")) {
+			this.cordova.getActivity().runOnUiThread(new Runnable() {
+				public void run() {
+					try {
 			String sipUsername = (String) args.get(0);
 			String password = (String) args.get(1);
 			String domain = Netcastdigital.SIP_DOMAIN;
@@ -91,9 +115,18 @@ public class LinPhonePlugin extends CordovaPlugin {
 			domain = domain;
 			// registerSip(sipUsername, password, domain);
 			PluginResult result = new PluginResult(Status.OK);
+				
 			callbackContext.sendPluginResult(result);
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}
+			});
 			return true;
 		} else if (action.equals("deregisterSip")) {
+			this.cordova.getActivity().runOnUiThread(new Runnable() {
+				public void run() {
+					try {
 			String sipUsername = (String) args.get(0);
 			String status = (String) args.get(1);
 			String domain = Netcastdigital.SIP_DOMAIN;
@@ -102,8 +135,14 @@ public class LinPhonePlugin extends CordovaPlugin {
 			}
 			PluginResult result = new PluginResult(Status.OK);
 			callbackContext.sendPluginResult(result);
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}
+			});
 			return true;
 		} else if (action.equals("backWind")) {
+			
 			dialDtmf('4');
 			callbackContext.success("back wind");
 			return true;
@@ -115,54 +154,59 @@ public class LinPhonePlugin extends CordovaPlugin {
 			callbackContext.success("pause sip");
 			return true;
 		} else if (action.equals("signOut")) {
+			this.cordova.getActivity().runOnUiThread(new Runnable() {
+				public void run() {
+					try {
 			String sipUsername = (String) args.get(0);
 			String domain = Netcastdigital.SIP_DOMAIN;
 			signOut(sipUsername, domain);
 			callbackContext.success("Sign out successful.");
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}
+			});
 			return true;
-			
+
 		} else if (action.equals("isPlaying")) {
-		String	messageID = (String) args.get(0);
-		String s = message;
-		if (LinPhonePlugin.message.equals(messageID)) {
+			
+			String messageID = (String) args.get(0);
+			titleNotification = (String) args.get(1);
+			String s = message;
+			if (LinPhonePlugin.message.equals(messageID)) {
 				JSONObject objJSON = new JSONObject();
 				boolean playing = false;
 				if (user != null && domain != null) {
 					playing = true;
 				}
-				
-				
+
 				objJSON.put("playing", playing);
-				PluginResult result = new PluginResult(Status.OK,
-						objJSON);
+				PluginResult result = new PluginResult(Status.OK, objJSON);
 				callbackContext.sendPluginResult(result);
 				return true;
 			}
-			
-			
+
 		} else if (action.equals("duration")) {
-			String	messageID = (String) args.get(0);
+			String messageID = (String) args.get(0);
 
 			if (LinPhonePlugin.message.equals(messageID)) {
-			JSONObject objJSON = new JSONObject();
+				JSONObject objJSON = new JSONObject();
 				boolean playing = false;
 				if (user != null && domain != null) {
 					playing = true;
 				}
 				LinphoneCore lc = LinphoneManager.getLc();
 				LinphoneCall currentCall = lc.getCurrentCall();
-				
-				objJSON.put("duration", currentCall.getDuration() );
-				PluginResult result = new PluginResult(Status.OK,
-						objJSON);
+
+				objJSON.put("duration", currentCall.getDuration());
+				PluginResult result = new PluginResult(Status.OK, objJSON);
 				callbackContext.sendPluginResult(result);
 				return true;
 			}
-			
+
 		}
 		return false;
 	}
-	
 
 	private void registerSip(String sipUsername, String password, String domain) {
 		currentSipUsername = sipUsername;
@@ -276,61 +320,65 @@ public class LinPhonePlugin extends CordovaPlugin {
 		return indexes;
 	}
 
-	
-	
 	private void creatNotification() {
 
-//
-//		Intent create = new Intent(this.cordova.getActivity()
-//				.getApplicationContext(), Netcastdigital.class);
-//		create.setAction("hehe");
+		//
+		// Intent create = new Intent(this.cordova.getActivity()
+		// .getApplicationContext(), Netcastdigital.class);
+		// create.setAction("hehe");
 		Intent previous = new Intent(NOTIFY_CREATE);
 
-		this.cordova.getActivity().getApplicationContext().sendBroadcast(previous);
+		this.cordova.getActivity().getApplicationContext()
+				.sendBroadcast(previous);
 	}
+
 	private void deleteNotification() {
 
 		//
-//				Intent create = new Intent(this.cordova.getActivity()
-//						.getApplicationContext(), Netcastdigital.class);
-//				create.setAction("hehe");
-				Intent delete = new Intent(NOTIFY_KILL);
+		// Intent create = new Intent(this.cordova.getActivity()
+		// .getApplicationContext(), Netcastdigital.class);
+		// create.setAction("hehe");
+		Intent delete = new Intent(NOTIFY_KILL);
 
-				this.cordova.getActivity().getApplicationContext().sendBroadcast(delete);
-			}
-//	@Override
-//	public void onNewIntent(Intent intent) {
-//		// TODO Auto-generated method stub
-//		intent.getBundleExtra("hehe");
-//		if (intent.getAction().equals("pause")) {
-//			dialDtmf('#');
-//			NotificationManager notificationManager = (NotificationManager) this.cordova
-//					.getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-//			notificationManager.cancelAll();
-//			creatNotificationplay();
-//			
-////			Notification n = new Notification.Builder(this.cordova.getActivity()
-////					.getApplicationContext()).build();
-////			n.flags = Notification.FLAG_NO_CLEAR;
-//			
-//		}else if (intent.getAction().equals("play")) {
-//			dialDtmf('#');
-//			NotificationManager notificationManager = (NotificationManager) this.cordova
-//					.getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-//			notificationManager.cancelAll();
-//			creatNotification();
-////			Notification n = new Notification.Builder(this.cordova.getActivity()
-////					.getApplicationContext()).build();
-////			n.flags = Notification.FLAG_NO_CLEAR;
-//		}
-//		else if ((intent.getAction().equals("next"))) {
-//			dialDtmf('6');
-//		}else {
-//			dialDtmf('4');
-//
-//		}
-//		super.onNewIntent(intent);
-//	}
+		this.cordova.getActivity().getApplicationContext()
+				.sendBroadcast(delete);
+	}
+
+	// @Override
+	// public void onNewIntent(Intent intent) {
+	// // TODO Auto-generated method stub
+	// intent.getBundleExtra("hehe");
+	// if (intent.getAction().equals("pause")) {
+	// dialDtmf('#');
+	// NotificationManager notificationManager = (NotificationManager)
+	// this.cordova
+	// .getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+	// notificationManager.cancelAll();
+	// creatNotificationplay();
+	//
+	// // Notification n = new Notification.Builder(this.cordova.getActivity()
+	// // .getApplicationContext()).build();
+	// // n.flags = Notification.FLAG_NO_CLEAR;
+	//
+	// }else if (intent.getAction().equals("play")) {
+	// dialDtmf('#');
+	// NotificationManager notificationManager = (NotificationManager)
+	// this.cordova
+	// .getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+	// notificationManager.cancelAll();
+	// creatNotification();
+	// // Notification n = new Notification.Builder(this.cordova.getActivity()
+	// // .getApplicationContext()).build();
+	// // n.flags = Notification.FLAG_NO_CLEAR;
+	// }
+	// else if ((intent.getAction().equals("next"))) {
+	// dialDtmf('6');
+	// }else {
+	// dialDtmf('4');
+	//
+	// }
+	// super.onNewIntent(intent);
+	// }
 
 	public static void signOut(String sipUsername, String domain) {
 		if (LinphoneManager.isInstanciated()) {

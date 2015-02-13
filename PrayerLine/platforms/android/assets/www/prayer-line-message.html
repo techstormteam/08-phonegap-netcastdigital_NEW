@@ -226,6 +226,7 @@
             var user_id = user.getId();
             var message_id = getUrlParameter('message_id');
             var currentMessage = null;
+           	var titleNotification = '';
             getRaiting();
 			
 			$('.play_button').bind('taphold', function() {
@@ -273,7 +274,7 @@
                 $('#message_title').html(currentMessage['msg_title']);
                 //global.showPopup('', message['msg_title'], 'success');
                 $('#message_title_dialog').html(currentMessage['msg_title']);
-
+				titleNotification = currentMessage['msg_title'];
                 $('#message_author_dialog').html(currentMessage['msg_by']);
                 $('#message_author').html(currentMessage['msg_by']);
                 $('#message_type').html(currentMessage['msg_type']);

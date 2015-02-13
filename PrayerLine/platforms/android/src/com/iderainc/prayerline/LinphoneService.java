@@ -56,8 +56,11 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.SystemClock;
 import android.provider.MediaStore;
+import android.support.v4.app.NotificationCompat;
+import android.view.View;
+import android.widget.RemoteViews;
+import android.widget.Toast;
 
-import com.iderainc.prayerline.R;
 import com.iderainc.prayerline.LinphoneSimpleListener.LinphoneServiceListener;
 import com.iderainc.prayerline.compatibility.Compatibility;
 
@@ -84,10 +87,27 @@ public final class LinphoneService extends Service implements LinphoneServiceLis
 	/*private static final int IC_LEVEL_GREEN=1;
 	private static final int IC_LEVEL_RED=2;*/
 	public static final int IC_LEVEL_OFFLINE=3;
-	
+	public static final String ACTION_MyIntentService = "com.example.androidintentservice.RESPONSE";
+	public static final String ACTION_MyUpdate = "com.example.androidintentservice.UPDATE";
+	public static final String NOTIFY_CREATE = "com.tutorialsface.audioplayer.create";
+	public static final String NOTIFY_PREVIOUS = "com.tutorialsface.audioplayer.previous";
+	public static final String NOTIFY_DELETE = "com.tutorialsface.audioplayer.delete";
+	public static final String NOTIFY_PAUSE = "com.tutorialsface.audioplayer.pause";
+	public static final String NOTIFY_PLAY = "com.tutorialsface.audioplayer.play";
+	public static final String NOTIFY_BACK = "com.tutorialsface.audioplayer.back";
+	public static final String NOTIFY_NEXT = "com.tutorialsface.audioplayer.next";
+	public static final String NOTIFY_KILL = "com.tutorialsface.audioplayer.kill";
+	public static final String NOTIFY_RETURN = "com.tutorialsface.audioplayer.return";
 	private static LinphoneService instance;
-	
-	private final static int NOTIF_ID=1;
+	String msgFromActivity;
+	String extraOut;
+	public static final String EXTRA_KEY_OUT = "EXTRA_OUT";
+	public static final String EXTRA_KEY_UPDATE = "EXTRA_UPDATE";
+	Boolean checkPA;
+	Boolean checkPL;
+	public static Boolean checkBack;
+	public Integer close;
+	public  static int NOTIF_ID=1;
 	private final static int INCALL_NOTIF_ID=2;
 	private final static int MESSAGE_NOTIF_ID=3;
 	private final static int CUSTOM_NOTIF_ID=4;
@@ -111,9 +131,11 @@ public final class LinphoneService extends Service implements LinphoneServiceLis
 	private boolean mTestDelayElapsed = true; // no timer
 	private WifiManager mWifiManager;
 	private WifiLock mWifiLock;
-	private NotificationManager mNM;
+	public static NotificationManager mNM;
+	String stringPassedToThisService;
+	public static String EXTRA_KEY_IN = "EXTRA_IN";
 
-	private Notification mNotif;
+	public static  Notification mNotif;
 	private Notification mIncallNotif;
 	private Notification mMsgNotif;
 	private Notification mCustomNotif;
@@ -122,7 +144,15 @@ public final class LinphoneService extends Service implements LinphoneServiceLis
 	private PendingIntent mkeepAlivePendingIntent;
 	private String mNotificationTitle;
 	private boolean mDisableRegistrationStatus;
-
+protected void onHandleIntent(Intent intent) {
+		
+		//get input
+		msgFromActivity = intent.getStringExtra(EXTRA_KEY_IN);
+		extraOut = "Hello: " +  msgFromActivity;
+		Toast.makeText(getApplicationContext(), 
+			    "asdsadsadsadsadsada", Toast.LENGTH_LONG).show();
+		
+	}
 	public int getMessageNotifCount() {
 		return mMsgNotifCount;
 	}
@@ -130,7 +160,33 @@ public final class LinphoneService extends Service implements LinphoneServiceLis
 	public void resetMessageNotifCount() {
 		mMsgNotifCount = 0;
 	}
+	public synchronized void createNotif(){
+		
+		
+	}
+public synchronized void Notification(){
+	mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+	
+	Intent intent1 = new Intent(this, Netcastdigital.class);
+	intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | 
+		    Intent.FLAG_ACTIVITY_SINGLE_TOP | 
+		    Intent.FLAG_ACTIVITY_NEW_TASK);
+	PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent1, 0);
 
+	// build notification
+	// the addAction re-use the same intent to keep the example short
+	Notification n  = new Notification.Builder(this)
+	.setSmallIcon(R.drawable.icon)        
+	.setOngoing(true)
+	        .build();
+	n.setLatestEventInfo(this, getString(R.string.app_name), getString(R.string.notification_register_failure), pIntent);
+	startForegroundCompat(NOTIF_ID, n);
+
+
+}
+	
+	
+	
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -151,7 +207,7 @@ public final class LinphoneService extends Service implements LinphoneServiceLis
 			bm = BitmapFactory.decodeResource(getResources(), R.drawable.icon);
 		} catch (Exception e) {
 		}
-		mNotif = Compatibility.createNotification(this, mNotificationTitle, "", R.drawable.icon, IC_LEVEL_OFFLINE, bm, mNotifContentIntent, true);
+//		mNotif = Compatibility.createNotification(this, mNotificationTitle, "", R.drawable.icon, IC_LEVEL_OFFLINE, bm, mNotifContentIntent, true);
 
 		LinphoneManager.createAndStart(this, this);
 		mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
@@ -161,6 +217,27 @@ public final class LinphoneService extends Service implements LinphoneServiceLis
 		instance = this; // instance is ready once linphone manager has been created
 		
 
+		
+		Intent intent1 = new Intent(this, Netcastdigital.class);
+		intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | 
+			    Intent.FLAG_ACTIVITY_SINGLE_TOP | 
+			    Intent.FLAG_ACTIVITY_NEW_TASK);
+		PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent1, 0);
+
+		// build notification
+		// the addAction re-use the same intent to keep the example short
+		Notification n  = new Notification.Builder(this)
+		.setSmallIcon(R.drawable.icon)   
+		.setOngoing(true)
+		        .build();
+		n.setLatestEventInfo(this, getString(R.string.app_name), getString(R.string.notification_register_failure), pIntent);    
+		  
+		
+		
+		
+		
+		
+		
 		// Retrieve methods to publish notification and keep Android
 		// from killing us and keep the audio quality high.
 		if (Version.sdkStrictlyBelow(Version.API05_ECLAIR_20)) {
@@ -178,7 +255,7 @@ public final class LinphoneService extends Service implements LinphoneServiceLis
 			}
 		}
 
-		startForegroundCompat(NOTIF_ID, mNotif);
+		startForegroundCompat(NOTIF_ID, n);
 
 		if (!mTestDelayElapsed) {
 			// Only used when testing. Simulates a 5 seconds delay for launching service
@@ -256,7 +333,11 @@ public final class LinphoneService extends Service implements LinphoneServiceLis
 
 		notifyWrapper(INCALL_NOTIF_ID, mIncallNotif);
 	}
-
+	public synchronized void canCel(){
+		mNM = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+		stopForeground(true);
+		mNM.cancelAll();
+	}
 	public void refreshIncallIcon(LinphoneCall currentCall) {
 		LinphoneCore lc = LinphoneManager.getLc();
 		if (currentCall != null) {
@@ -371,6 +452,7 @@ public final class LinphoneService extends Service implements LinphoneServiceLis
 	 * This is a wrapper around the new startForeground method, using the older
 	 * APIs if it is not available.
 	 */
+	
 	void startForegroundCompat(int id, Notification notification) {
 		// If we have the new startForeground API, then use it.
 		if (mStartForeground != null) {
@@ -463,11 +545,15 @@ public final class LinphoneService extends Service implements LinphoneServiceLis
 	 * present despite the service is not running. To trigger it one could
 	 * stop linphone as soon as it is started. Transport configured with TLS.
 	 */
-	private synchronized void notifyWrapper(int id, Notification notification) {
+	
+	public synchronized void notifyWrapper(int id, Notification notification) {
+		
 		if (instance != null && notification != null) {
-			mNM.notify(id, notification);
-		} else {
-			Log.i("Service not ready, discarding notification");
+//			mNM.notify(id, notification);
+			close = id;
+//			mNM.cancelAll();
+//	stopForeground(true);
+//			canCel();
 		}
 	}
 
@@ -475,7 +561,10 @@ public final class LinphoneService extends Service implements LinphoneServiceLis
 	public IBinder onBind(Intent intent) {
 		return null;
 	}
-
+	public synchronized void ds(){
+		
+		stopForegroundCompat(close);
+	}
 	@Override
 	public synchronized void onDestroy() {
 		instance = null;
